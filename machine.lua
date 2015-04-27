@@ -32,6 +32,24 @@ minetest.register_node('mylandscaping:machine', {
 			{1.1, -0.5, -0.1, 1.5, -0.3, 0.5}
 		}
 	},
+
+can_dig = function(pos,player)
+	local meta = minetest.env:get_meta(pos);
+	local inv = meta:get_inventory()
+	if not inv:is_empty("input") then
+		return false
+	elseif not inv:is_empty("output") then
+		return false
+	end
+	return true
+end,
+
+after_place_node = function(pos, placer, itemstack)
+	local meta = minetest.env:get_meta(pos)
+	meta:set_string("owner",placer:get_player_name())
+	meta:set_string("infotext","Concrete Mixer (owned by "..placer:get_player_name()..")")
+	end,
+
 on_construct = function(pos)
 	local meta = minetest.env:get_meta(pos)
 	meta:set_string("formspec", "invsize[10,10;]"..

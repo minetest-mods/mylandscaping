@@ -60,11 +60,34 @@ minetest.register_node('mylandscaping:rwall_'..typ..mat, {
 
 after_place_node = function(pos, placer, itemstack, pointed_thing)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
-	local node = minetest.get_node(pos)
+	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
+	local node = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z})
+	if nodeu == "mylandscaping:rwall_"..typ..mat or
+	   nodeu == "mylandscaping:rwall_b"..typ..mat then
+	   minetest.set_node(pos,{name="mylandscaping:rwall_"..typ..mat,param2=node.param2})
+	end
 	if nodeu.name == "mylandscaping:rwall_"..typ..mat then
 	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_b"..typ..mat,param2=node.param2})
 	end
-end
+	if nodea.name == "mylandscaping:rwall_"..typ..mat then
+	   minetest.set_node(pos,{name="mylandscaping:rwall_b"..typ..mat,param2=node.param2})
+	end
+end,
+
+after_destruct = function(pos, oldnode)
+	local node = minetest.get_node(pos).name
+	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
+	local nodeu2 = minetest.get_node({x=pos.x,y=pos.y-2,z=pos.z})
+	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
+
+	if nodeu.name == "mylandscaping:rwall_b"..typ..mat and
+	   nodea.name == "air" then
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_"..typ..mat,param2=node.param2})
+	end
+
+
+end,
+
 })
 
 end

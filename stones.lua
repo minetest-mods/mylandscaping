@@ -15,17 +15,17 @@ minetest.register_node("mylandscaping:stone_"..style,{
 	tiles = {
 		"mylandscaping_"..img1..".png^mylandscaping_"..img2..".png",
 		"mylandscaping_"..img1..".png",
-		"mylandscaping_"..img1..".png",
-		"mylandscaping_"..img1..".png",
-		"mylandscaping_"..img1..".png",
-		"mylandscaping_"..img1..".png",
+		"mylandscaping_"..img1..".png^mylandscaping_"..img2..".png",
+		"mylandscaping_"..img1..".png^mylandscaping_"..img2..".png",
+		"mylandscaping_"..img1..".png^mylandscaping_"..img2..".png",
+		"mylandscaping_"..img1..".png^mylandscaping_"..img2..".png",
 		},
 	paramtype = "light",
 	groups = {cracky = 2},
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,  -0.5, -0.5,    0.5,   -0.125,      0.5}, 
+			{-0.5,  -0.5, -0.5,    0.5,   -0.375,      0.5}, 
 		}
 	},
 	
@@ -38,6 +38,7 @@ minetest.register_node("mylandscaping:stone_"..style,{
 		   minetest.set_node(pos,{name = "air"})
 		end
 	end,
+
 })
 minetest.register_node("mylandscaping:stone_"..style.."_sand",{
 	description = desc.." Patio Stone in Sand",
