@@ -71,6 +71,8 @@ on_construct = function(pos)
 		--Input
 		"label[3,4;  Input]"..
 		"list[current_name;input;3,4.5;1,1;]"..
+		"label[4,4;  Dye]"..
+		"list[current_name;dye;4,4.5;1,1;]"..
 		--Output
 		"label[6,4;Output]"..
 		"list[current_name;output;6,4.5;1,1;]"..
@@ -80,6 +82,7 @@ on_construct = function(pos)
 	local inv = meta:get_inventory()
 	inv:set_size("input", 1)
 	inv:set_size("output", 1)
+	inv:set_size("dye", 1)
 end,
 
 on_receive_fields = function(pos, formname, fields, sender)
@@ -134,18 +137,30 @@ then
 		end
 	end
 	
-		local ingotstack = inv:get_stack("input", 1)
+		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
+		local dyestack = inv:get_stack("dye", 1)
 
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 
-	if ingotstack:get_name()== "mylandscaping:concrete" then
+	if instack:get_name()== "mylandscaping:concrete" then
 				material = "cement"
 				make_ok = "1"	
 	end
-	if ingotstack:get_name()== "default:wood" then
-				material = "wood"
+	if instack:get_name()== "mylandscaping:concrete" and
+	   dyestack:get_name()== "dye:yellow" then
+				material = "cement_tan"
+				make_ok = "1"	
+	end
+	if instack:get_name()== "mylandscaping:concrete" and
+	   dyestack:get_name()== "dye:orange" then
+				material = "cement_autumn"
+				make_ok = "1"	
+	end
+	if instack:get_name()== "mylandscaping:concrete" and
+	   dyestack:get_name()== "dye:red" then
+				material = "cement_red"
 				make_ok = "1"	
 	end
 
@@ -157,8 +172,14 @@ then
 			for i = 0, anzahl-1 do
 				give[i+1]=inv:add_item("output",block..material)
 			end
-			ingotstack:take_item()
-			inv:set_stack("input",1,ingotstack)
+			instack:take_item()
+			inv:set_stack("input",1,instack)
+			if dyestack:get_name() == "dye:yellow" or
+			   dyestack:get_name() == "dye:orange" or
+			   dyestack:get_name() == "dye:red" then
+			dyestack:take_item()
+			inv:set_stack("dye",1,dyestack)
+			end
 		end
 
 end
@@ -195,7 +216,7 @@ then
 		end
 	end
 	
-		local ingotstack = inv:get_stack("input", 1)
+		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 
 
@@ -203,7 +224,7 @@ then
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 
-	if ingotstack:get_name()== "mylandscaping:concrete" then
+	if instack:get_name()== "mylandscaping:concrete" then
 				make_ok2 = "1"
 		
 	end
@@ -216,8 +237,8 @@ then
 			for i = 0, anzahl2-1 do
 				give[i+1]=inv:add_item("output",stone)
 			end
-			ingotstack:take_item()
-			inv:set_stack("input",1,ingotstack)
+			instack:take_item()
+			inv:set_stack("input",1,instack)
 		end
 
 end
