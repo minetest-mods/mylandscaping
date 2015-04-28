@@ -23,6 +23,12 @@ local colbox_type4 = { --corner
 			{0, -.5, -.5, .5, .5, .5}
 	}
 }
+local colbox_type5 = { --corner
+	type = "fixed",
+	fixed = {
+			{-.5, -.5, -.5, .5, .5, .5},
+	}
+}
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Left", 		"left", 	"block1_top_l",		colbox_type1, "left",   {cracky=2,not_in_creative_inventory=1}},
@@ -30,12 +36,14 @@ local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Right", 		"right",	"block1_top_r",		colbox_type1, "right",  {cracky=2,not_in_creative_inventory=1}},
 {"Corner", 		"corner",	"block1_top_c",		colbox_type4, "corner", {cracky=2,not_in_creative_inventory=1}},
 {"Column Top", 		"column",	"column_upper",		colbox_type2, "column", {cracky=2,not_in_creative_inventory=1}},
+{"Big Column Top", 	"column_m",	"column_m_upper",	colbox_type5, "column_m", {cracky=2,not_in_creative_inventory=1}},
 
 {"Left Bot", 		"bleft", 	"block1_bot_l",		colbox_type3, "left",   {not_in_creative_inventory=1}},
 {"Middle Bot", 		"bmiddle",	"block1_bot_m",		colbox_type3, "middle", {not_in_creative_inventory=1}},
 {"Right Bot", 		"bright",	"block1_bot_r",		colbox_type3, "right",  {not_in_creative_inventory=1}},
 {"Corner Bot", 		"bcorner",	"block1_bot_c",		colbox_type4, "corner", {not_in_creative_inventory=1}},
 {"Column Bot", 		"bcolumn",	"column_lower",		colbox_type2, "column", {not_in_creative_inventory=1}},
+{"Big Column Bot", 	"bcolumn_m",	"column_m_lower",	colbox_type5, "column_m", {not_in_creative_inventory=1}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]

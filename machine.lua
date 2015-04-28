@@ -59,8 +59,9 @@ on_construct = function(pos)
 		"image_button[1,1.5;1,1;mylandscaping_wall1.png;wall1; ]"..
 		"image_button[2,1.5;1,1;mylandscaping_wall2.png;wall2; ]"..
 		"image_button[3,1.5;1,1;mylandscaping_wall3.png;wall3; ]"..
-		"image_button[1.5,2.5;1,1;mylandscaping_wall4.png;wall4; ]"..
-		"image_button[2.5,2.5;1,1;mylandscaping_wall5.png;column; ]"..
+		"image_button[1,2.5;1,1;mylandscaping_wall4.png;wall4; ]"..
+		"image_button[2,2.5;1,1;mylandscaping_wall5.png;column; ]"..
+		"image_button[3,2.5;1,1;mylandscaping_wall5.png;column2; ]"..
 
 		"label[6.5,0.5;Patio Stones]"..
 		--Styles of blocks
@@ -94,6 +95,7 @@ or fields["wall2"]
 or fields["wall3"]
 or fields["wall4"]
 or fields["column"]
+or fields["column2"]
 then 
 
 	if fields["wall1"] then
@@ -132,6 +134,14 @@ then
 		make_ok = "0"
 		anzahl = "2"
 		block = "mylandscaping:rwall_column"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["column2"] then
+		make_ok = "0"
+		anzahl = "2"
+		block = "mylandscaping:rwall_column_m"
 		if inv:is_empty("input") then
 			return
 		end
