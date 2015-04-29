@@ -51,7 +51,7 @@ minetest.register_node("mylandscaping:stone_"..style.."_sand",{
 		"mylandscaping_"..img1..".png",
 		"mylandscaping_"..img1..".png",
 		},
-	drop = "mylandscaping:stone"..style,
+	drop = "mylandscaping:stone_"..style,
 	paramtype = "light",
 	groups = {cracky = 2, not_in_creative_inventory = 1},
 
