@@ -56,9 +56,9 @@ for i in ipairs (block_type1) do
 
 local block_mat = { -- desc1, mat, img, img2
 			{"Cement", "cement", "mylandscaping_cement.png",""},
-			{"Tan Cement", "cement_tan", "mylandscaping_cement.png","^mylandscaping_yellow.png"},
-			{"Autumn Cement", "cement_autumn", "mylandscaping_cement.png","^mylandscaping_orange.png"},
-			{"Red Cement", "cement_red", "mylandscaping_cement.png","^mylandscaping_red.png"},
+			{"Tan Cement", "cement_tan", "mylandscaping_cement.png","^[colorize:#967d4d:75"},
+			{"Autumn Cement", "cement_autumn", "mylandscaping_cement.png","^[colorize:#ffc017:75"},
+			{"Red Cement", "cement_red", "mylandscaping_cement.png","^[colorize:#800900:75"},
 }
 for i in ipairs (block_mat) do
 	local desc1 = block_mat[i][1]
