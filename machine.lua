@@ -54,18 +54,23 @@ on_construct = function(pos)
 		"background[-0.15,-0.25;10.40,10.75;mylandscaping_background.png]"..
 		"label[1.5,0.5;Retaining Wall]"..
 		--Styles of blocks
+		"label[1,1;Wall Blocks]"..
 		"image_button[1,1.5;1,1;mylandscaping_wall1.png;wall1; ]"..
 		"image_button[2,1.5;1,1;mylandscaping_wall2.png;wall2; ]"..
 		"image_button[3,1.5;1,1;mylandscaping_wall3.png;wall3; ]"..
-		"image_button[1,2.5;1,1;mylandscaping_wall4.png;wall4; ]"..
-		"image_button[2,2.5;1,1;mylandscaping_wall5.png;column; ]"..
-		"image_button[3,2.5;1,1;mylandscaping_wall5.png;column2; ]"..
+		"image_button[4,1.5;1,1;mylandscaping_wall4.png;wall4; ]"..
+
+		--Styles of columns
+		"label[1,2.5;Columns]"..
+		"image_button[1,3;1,1;mylandscaping_wall5.png;column; ]"..
+		"image_button[2,3;1,1;mylandscaping_wall5.png;column2; ]"..
+		"image_button[3,3;1,1;mylandscaping_wall5.png;column3; ]"..
 
 		"label[6.5,0.5;Patio Stones]"..
 		--Styles of blocks
-		"image_button[6,1.5;1,1;mylandscaping_square.png;patio1; ]"..
-		"image_button[7,1.5;1,1;mylandscaping_square_sm.png;patio2; ]"..
-		"image_button[8,1.5;1,1;mylandscaping_pavers.png;patio3; ]"..
+		"image_button[6,1.5;1,1;mylandscaping_patio1.png;patio1; ]"..
+		"image_button[7,1.5;1,1;mylandscaping_patio2.png;patio2; ]"..
+		"image_button[8,1.5;1,1;mylandscaping_patio3.png;patio3; ]"..
 
 		--Input
 		"label[3,4;  Input]"..
@@ -94,6 +99,7 @@ or fields["wall3"]
 or fields["wall4"]
 or fields["column"]
 or fields["column2"]
+or fields["column3"]
 then 
 
 	if fields["wall1"] then
@@ -130,7 +136,7 @@ then
 	end
 	if fields["column"] then
 		make_ok = "0"
-		anzahl = "2"
+		anzahl = "1"
 		block = "mylandscaping:rwall_column"
 		if inv:is_empty("input") then
 			return
@@ -138,8 +144,16 @@ then
 	end
 	if fields["column2"] then
 		make_ok = "0"
-		anzahl = "2"
+		anzahl = "1"
 		block = "mylandscaping:rwall_column_m"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["column3"] then
+		make_ok = "0"
+		anzahl = "1"
+		block = "mylandscaping:rwall_column_i"
 		if inv:is_empty("input") then
 			return
 		end
