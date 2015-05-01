@@ -31,18 +31,18 @@ local colbox_type5 = { --corner
 }
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
-{"Left", 		"left", 	"block1_top_l",		colbox_type1, "left",   {cracky=2,not_in_creative_inventory=1}},
-{"Middle", 		"middle",	"block1_top_m",		colbox_type1, "middle", {cracky=2,not_in_creative_inventory=1}},
-{"Right", 		"right",	"block1_top_r",		colbox_type1, "right",  {cracky=2,not_in_creative_inventory=1}},
-{"Corner", 		"corner",	"block1_top_c",		colbox_type4, "corner", {cracky=2,not_in_creative_inventory=1}},
+{"Left", 		"left", 	"block1_l_t",		colbox_type1, "left",   {cracky=2,not_in_creative_inventory=1}},
+{"Middle", 		"middle",	"block1_m_t",		colbox_type1, "middle", {cracky=2,not_in_creative_inventory=1}},
+{"Right", 		"right",	"block1_r_t",		colbox_type1, "right",  {cracky=2,not_in_creative_inventory=1}},
+{"Corner", 		"corner",	"block1_c_t",		colbox_type4, "corner", {cracky=2,not_in_creative_inventory=1}},
 {"Column Top", 		"column",	"column_upper",		colbox_type2, "column", {cracky=2,not_in_creative_inventory=1}},
 {"Big Column Top", 	"column_m",	"column_m_upper",	colbox_type5, "column_m", {cracky=2,not_in_creative_inventory=1}},
 {"Inside Corner Column Top", "column_i","column_i_upper",	colbox_type5, "column_i", {cracky=2,not_in_creative_inventory=1}},
 
-{"Left Bot", 		"bleft", 	"block1_bot_l",		colbox_type3, "left",   {not_in_creative_inventory=1}},
-{"Middle Bot", 		"bmiddle",	"block1_bot_m",		colbox_type3, "middle", {not_in_creative_inventory=1}},
-{"Right Bot", 		"bright",	"block1_bot_r",		colbox_type3, "right",  {not_in_creative_inventory=1}},
-{"Corner Bot", 		"bcorner",	"block1_bot_c",		colbox_type4, "corner", {not_in_creative_inventory=1}},
+{"Left Bot", 		"bleft", 	"block1_l_b",		colbox_type3, "left",   {not_in_creative_inventory=1}},
+{"Middle Bot", 		"bmiddle",	"block1_m_b",		colbox_type3, "middle", {not_in_creative_inventory=1}},
+{"Right Bot", 		"bright",	"block1_r_b",		colbox_type3, "right",  {not_in_creative_inventory=1}},
+{"Corner Bot", 		"bcorner",	"block1_c_b",		colbox_type4, "corner", {not_in_creative_inventory=1}},
 {"Column Bot", 		"bcolumn",	"column_lower",		colbox_type2, "column", {not_in_creative_inventory=1}},
 {"Big Column Bot", 	"bcolumn_m",	"column_m_lower",	colbox_type5, "column_m", {not_in_creative_inventory=1}},
 {"Inside Corner Column Bot", "bcolumn_i","column_i_lower",	colbox_type5, "column_i", {not_in_creative_inventory=1}},
@@ -56,17 +56,18 @@ for i in ipairs (block_type1) do
 	local grup = block_type1[i][6]
 
 
-local block_mat = { -- desc1, mat, img, img2
-			{"Cement", "cement", "mylandscaping_cement.png",""},
-			{"Tan Cement", "cement_tan", "mylandscaping_cement.png","^[colorize:#967d4d:75"},
-			{"Autumn Cement", "cement_autumn", "mylandscaping_cement.png","^[colorize:#ffc017:75"},
-			{"Red Cement", "cement_red", "mylandscaping_cement.png","^[colorize:#800900:75"},
+local block_mat = { -- desc1, mat, img, img2, img3
+			{"Cement", "cement", "mylandscaping_block_top_1.png","","mylandscaping_block_face.png"},
+			{"Tan Cement", "cement_tan", "mylandscaping_block_top_1.png","^[colorize:#967d4d:75", "mylandscaping_block_face.png"},
+			{"Autumn Cement", "cement_autumn", "mylandscaping_block_top_1.png","^[colorize:#ffc017:75", "mylandscaping_block_face.png"},
+			{"Red Cement", "cement_red", "mylandscaping_block_top_1.png","^[colorize:#800900:75","mylandscaping_block_face.png"},
 }
 for i in ipairs (block_mat) do
 	local desc1 = block_mat[i][1]
 	local mat = block_mat[i][2]
 	local img = block_mat[i][3]
 	local img2 = block_mat[i][4]
+	local img3 = block_mat[i][5]
 
 
 
@@ -77,7 +78,7 @@ minetest.register_node('mylandscaping:rwall_'..typ..mat, {
 	description = desc1..' Retaining Wall '..desc2,
 	drawtype = 'mesh',
 	mesh = 'mylandscaping_'..obj..'.obj',
-	tiles = {img..img2},
+	tiles = {{name=img..img2}, {name=img3..img2}},
 	groups = grup,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
