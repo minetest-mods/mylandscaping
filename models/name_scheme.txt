@@ -10,3 +10,9 @@ Right block is rightmost in a wall
 Middle block is two full blocks, offset on top
 Corner block is inside corner
 Full block is full on bottom, and two halves on top, only takes up one node.
+
+Columns don't follow same scheme, rather they use this.
+mylandscaping = name of mod
+*_column = can be extended in future to colum style
+*_*_IC = IC, OC, M [Inside Corner, Outside Corner, Middle]
+*_*_*_T = T, B [Top, Bottom]

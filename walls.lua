@@ -31,19 +31,30 @@ local colbox_type5 = { --corner
 }
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
-{"Left", 		"left", 	"block1_l_t",		colbox_type1, "left",   {cracky=2,not_in_creative_inventory=1}},
-{"Middle", 		"middle",	"block1_m_t",		colbox_type1, "middle", {cracky=2,not_in_creative_inventory=1}},
-{"Right", 		"right",	"block1_r_t",		colbox_type1, "right",  {cracky=2,not_in_creative_inventory=1}},
-{"Corner", 		"corner",	"block1_c_t",		colbox_type4, "corner", {cracky=2,not_in_creative_inventory=1}},
-{"Column Top", 		"column",	"column_upper",		colbox_type2, "column", {cracky=2,not_in_creative_inventory=1}},
-{"Big Column Top", 	"column_m",	"column_m_upper",	colbox_type5, "column_m", {cracky=2,not_in_creative_inventory=1}},
+--Upper walls
+{"Left", 		   "left", 	    "block1_l_t",		colbox_type1, "left",    {cracky=2,not_in_creative_inventory=1}},
+{"Middle", 		   "middle",	"block1_m_t",		colbox_type1, "middle",  {cracky=2,not_in_creative_inventory=1}},
+{"Full", 	       "full",	    "block1_f_t",	    colbox_type1, "full",    {cracky=2,not_in_creative_inventory=1}},
+{"Right", 		   "right",	    "block1_r_t",		colbox_type1, "right",   {cracky=2,not_in_creative_inventory=1}},
+{"Corner", 		   "corner",	"block1_c_t",		colbox_type4, "corner",  {cracky=2,not_in_creative_inventory=1}},
+--Lower Walls
+{"Left Bot", 	   "bleft", 	"block1_l_b",		colbox_type3, "left",    {not_in_creative_inventory=1}},
+{"Middle Bot", 	   "bmiddle",	"block1_m_b",		colbox_type3, "middle",  {not_in_creative_inventory=1}},
+{"Full Bot",       "bfull",     "block1_f_b",	    colbox_type1, "full",    {not_in_creative_inventory=1}},
+{"Right Bot", 	   "bright",	"block1_r_b",		colbox_type3, "right",   {not_in_creative_inventory=1}},
+{"Corner Bot", 	   "bcorner",	"block1_c_b",		colbox_type4, "corner",  {not_in_creative_inventory=1}},
+--Columns
+{"Column Top", 	   "column",	"column_upper",		colbox_type2, "column",  {cracky=2,not_in_creative_inventory=1}},
+{"Big Column Top", "column_m",	"column_m_upper",	colbox_type5, "column_m",{cracky=2,not_in_creative_inventory=1}},
+{"Column Bot", 	   "bcolumn",	"column_lower",		colbox_type2, "column",  {not_in_creative_inventory=1}},
+{"Big Column Bot", "bcolumn_m", "column_m_lower",	colbox_type5, "column_m",{not_in_creative_inventory=1}},
 
-{"Left Bot", 		"bleft", 	"block1_l_b",		colbox_type3, "left",   {not_in_creative_inventory=1}},
-{"Middle Bot", 		"bmiddle",	"block1_m_b",		colbox_type3, "middle", {not_in_creative_inventory=1}},
-{"Right Bot", 		"bright",	"block1_r_b",		colbox_type3, "right",  {not_in_creative_inventory=1}},
-{"Corner Bot", 		"bcorner",	"block1_c_b",		colbox_type4, "corner", {not_in_creative_inventory=1}},
-{"Column Bot", 		"bcolumn",	"column_lower",		colbox_type2, "column", {not_in_creative_inventory=1}},
-{"Big Column Bot", 	"bcolumn_m",	"column_m_lower",	colbox_type5, "column_m", {not_in_creative_inventory=1}},
+{"Column Inside Corner", 	 "column_ic_t",	"column_ic_t",	colbox_type2, "column_ic_t",  {cracky=2,not_in_creative_inventory=1}},
+{"Column Outside Corner", 	 "column_oc_t",	"column_oc_t",	colbox_type2, "column_oc_t",  {cracky=2,not_in_creative_inventory=1}},
+{"Column Middle", 	         "column_m_t",	"column_m_t",	colbox_type2, "column_m_t",   {cracky=2,not_in_creative_inventory=1}},
+{"Column Inside Corner Bot", "column_ic_b",	"column_ic_b",	colbox_type2, "column_ic_b",  {not_in_creative_inventory=1}},
+{"Column Outside Corner Bot","column_oc_b",	"column_oc_b",	colbox_type2, "column_oc_b",  {not_in_creative_inventory=1}},
+{"Column Middle Bot", 	     "column_m_b",	"column_m_b",	colbox_type2, "column_m_b",   {not_in_creative_inventory=1}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]
@@ -55,10 +66,10 @@ for i in ipairs (block_type1) do
 
 
 local block_mat = { -- desc1, mat, img, img2, img3
-			{"Cement", "cement", "mylandscaping_block_top_1.png","","mylandscaping_block_face.png"},
-			{"Tan Cement", "cement_tan", "mylandscaping_block_top_1.png","^[colorize:#967d4d:75", "mylandscaping_block_face.png"},
-			{"Autumn Cement", "cement_autumn", "mylandscaping_block_top_1.png","^[colorize:#ffc017:75", "mylandscaping_block_face.png"},
-			{"Red Cement", "cement_red", "mylandscaping_block_top_1.png","^[colorize:#800900:75","mylandscaping_block_face.png"},
+			{"Cement", "cement", "mylandscaping_block_top.png","","mylandscaping_block_face.png"},
+			{"Tan Cement", "cement_tan", "mylandscaping_block_top.png","^[colorize:#967d4d:75", "mylandscaping_block_face.png"},
+			{"Autumn Cement", "cement_autumn", "mylandscaping_block_top.png","^[colorize:#ffc017:75", "mylandscaping_block_face.png"},
+			{"Red Cement", "cement_red", "mylandscaping_block_top.png","^[colorize:#800900:75","mylandscaping_block_face.png"},
 }
 for i in ipairs (block_mat) do
 	local desc1 = block_mat[i][1]

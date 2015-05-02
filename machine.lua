@@ -8,9 +8,9 @@ local make_ok2 = {}
 local anzahl2 = {}
 
 minetest.register_node('mylandscaping:machine', {
-	description = 'landscaping machine',
+	description = 'concrete mixer',
 	drawtype = 'mesh',
-	mesh = 'mylandscaping_machine.obj',
+	mesh = 'mylandscaping_cement_mixer.obj',
 	tiles = {
 		{name='mylandscaping_tex3.png'},{name='mylandscaping_tex1.png'},{name='default_gravel.png'},{name='mylandscaping_tex2.png'}},
 	groups = {oddly_breakable_by_hand=2},
