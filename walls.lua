@@ -46,6 +46,13 @@ local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Column Bot", 		"bcolumn",	"column_lower",		colbox_type2, "column", {not_in_creative_inventory=1}},
 {"Big Column Bot", 	"bcolumn_m",	"column_m_lower",	colbox_type5, "column_m", {not_in_creative_inventory=1}},
 {"Inside Corner Column Bot", "bcolumn_i","column_i_lower",	colbox_type5, "column_i", {not_in_creative_inventory=1}},
+--These are the new names for the corners, feel free to update old code with new meshes or use this.
+{"Column Inside Corner",     "column_ic_t",	"column_ic_t",	colbox_type2, "column_ic_t",  {cracky=2,not_in_creative_inventory=1}},
+{"Column Outside Corner",    "column_oc_t",	"column_oc_t",	colbox_type2, "column_oc_t",  {cracky=2,not_in_creative_inventory=1}},
+{"Column Middle", 	     "column_m_t",	"column_m_t",	colbox_type2, "column_m_t",   {cracky=2,not_in_creative_inventory=1}},
+{"Column Inside Corner Bot", "column_ic_b",	"column_ic_b",	colbox_type2, "column_ic_b",  {not_in_creative_inventory=1}},
+{"Column Outside Corner Bot","column_oc_b",	"column_oc_b",	colbox_type2, "column_oc_b",  {not_in_creative_inventory=1}},
+{"Column Middle Bot", 	     "column_m_b",	"column_m_b",	colbox_type2, "column_m_b",   {not_in_creative_inventory=1}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]
@@ -57,10 +64,10 @@ for i in ipairs (block_type1) do
 
 
 local block_mat = { -- desc1, mat, img, img2, img3
-			{"Cement", "cement", "mylandscaping_block_top_1.png","","mylandscaping_block_face.png"},
-			{"Tan Cement", "cement_tan", "mylandscaping_block_top_1.png","^[colorize:#967d4d:75", "mylandscaping_block_face.png"},
-			{"Autumn Cement", "cement_autumn", "mylandscaping_block_top_1.png","^[colorize:#ffc017:75", "mylandscaping_block_face.png"},
-			{"Red Cement", "cement_red", "mylandscaping_block_top_1.png","^[colorize:#800900:75","mylandscaping_block_face.png"},
+			{"Cement", "cement", "mylandscaping_block_top.png","","mylandscaping_block_face.png"},
+			{"Tan Cement", "cement_tan", "mylandscaping_block_top.png","^[colorize:#967d4d:75", "mylandscaping_block_face.png"},
+			{"Autumn Cement", "cement_autumn", "mylandscaping_block_top.png","^[colorize:#ffc017:75", "mylandscaping_block_face.png"},
+			{"Red Cement", "cement_red", "mylandscaping_block_top.png","^[colorize:#800900:75","mylandscaping_block_face.png"},
 }
 for i in ipairs (block_mat) do
 	local desc1 = block_mat[i][1]
