@@ -7,7 +7,7 @@ local colbox_type1 = { --top blocks
 local colbox_type2 = { --columns
 	type = "fixed",
 	fixed = {
-			{0, -.5, 0, .5, .5, .5}
+			{-.2, -.5, -.2, .5, .5, .5}
 	}
 }
 local colbox_type3 = { --bottom blocks
@@ -29,6 +29,12 @@ local colbox_type5 = { --corner
 			{-.5, -.5, -.5, .5, .5, .5},
 	}
 }
+local colbox_type6 = { --corner
+	type = "fixed",
+	fixed = {
+			{-.5, -.5, -.3, .5, .5, .5},
+	}
+}
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Left", 		"left", 	"block1_l_t",		colbox_type1, "left",   {cracky=2,not_in_creative_inventory=1}},
@@ -39,12 +45,12 @@ local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Middle Bot", 		"bmiddle",	"block1_m_b",		colbox_type3, "middle", {not_in_creative_inventory=1}},
 {"Right Bot", 		"bright",	"block1_r_b",		colbox_type3, "right",  {not_in_creative_inventory=1}},
 {"Corner Bot", 		"bcorner",	"block1_c_b",		colbox_type4, "corner", {not_in_creative_inventory=1}},
-{"Column Inside Corner",     "column_ic_t",	"column_ic_t",	colbox_type2, "column_ic_t",  {cracky=2,not_in_creative_inventory=1}},
+{"Column Inside Corner",     "column_ic_t",	"column_ic_t",	colbox_type5, "column_ic_t",  {cracky=2,not_in_creative_inventory=1}},
 {"Column Outside Corner",    "column_oc_t",	"column_oc_t",	colbox_type2, "column_oc_t",  {cracky=2,not_in_creative_inventory=1}},
-{"Column Middle", 	     "column_m_t",	"column_m_t",	colbox_type2, "column_m_t",   {cracky=2,not_in_creative_inventory=1}},
-{"Column Inside Corner Bot", "bcolumn_ic_t",	"column_ic_b",	colbox_type2, "column_ic_b",  {not_in_creative_inventory=1}},
+{"Column Middle", 	     "column_m_t",	"column_m_t",	colbox_type6, "column_m_t",   {cracky=2,not_in_creative_inventory=1}},
+{"Column Inside Corner Bot", "bcolumn_ic_t",	"column_ic_b",	colbox_type5, "column_ic_b",  {not_in_creative_inventory=1}},
 {"Column Outside Corner Bot","bcolumn_oc_t",	"column_oc_b",	colbox_type2, "column_oc_b",  {not_in_creative_inventory=1}},
-{"Column Middle Bot", 	     "bcolumn_m_t",	"column_m_b",	colbox_type2, "column_m_b",   {not_in_creative_inventory=1}},
+{"Column Middle Bot", 	     "bcolumn_m_t",	"column_m_b",	colbox_type6, "column_m_b",   {not_in_creative_inventory=1}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]

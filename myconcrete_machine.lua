@@ -1,3 +1,6 @@
+
+minetest.register_alias("myconcrete:concrete", 	"mylandscaping:concrete")
+
 local material = {}
 local block = {}
 local make_ok = {}
@@ -163,21 +166,21 @@ then
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
 ----------------------------------------------------------------------
-	if instack:get_name()== "mylandscaping:concrete" then
+	if instack:get_name()== "myconcrete:concrete" then
 				material = "cement"
 				make_ok = "1"	
 	end
-	if instack:get_name()== "mylandscaping:concrete" and
+	if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== "dye:yellow" then
 				material = "cement_tan"
 				make_ok = "1"	
 	end
-	if instack:get_name()== "mylandscaping:concrete" and
+	if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== "dye:orange" then
 				material = "cement_autumn"
 				make_ok = "1"	
 	end
-	if instack:get_name()== "mylandscaping:concrete" and
+	if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== "dye:red" then
 				material = "cement_red"
 				make_ok = "1"	
@@ -231,7 +234,7 @@ then
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 ----------------------------------------------------------------------
-	if instack:get_name()== "mylandscaping:concrete" then
+	if instack:get_name()== "myconcrete:concrete" then
 				make_ok2 = "1"
 		
 	end

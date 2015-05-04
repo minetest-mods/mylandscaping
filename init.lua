@@ -6,7 +6,7 @@ dofile(minetest.get_modpath('mylandscaping')..'/stones.lua')
 dofile(minetest.get_modpath('mylandscaping')..'/recipes.lua')
 --dofile(minetest.get_modpath('mylandscaping')..'/mixer.lua')
 
-
+minetest.register_alias("myconcrete:concrete", 	"mylandscaping:concrete")
 
 local mod_myconcrete = minetest.get_modpath("myconcrete") 
 

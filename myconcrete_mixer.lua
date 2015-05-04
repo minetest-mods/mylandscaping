@@ -1,4 +1,4 @@
-minetest.register_alias("myconcrete:concrete", 				"mylandscaping:concrete")
+minetest.register_alias("mylandscaping:concrete", 	"myconcrete:concrete")
 
 local make_gravel = {}
 local output_gravel = {}
@@ -13,24 +13,21 @@ local amount3 = {}
 minetest.register_node('mylandscaping:mixer', {
 	description = 'concrete mixer',
 	drawtype = 'mesh',
-	mesh = 'mylandscaping_machine.obj',
-	tiles = {
-		{name='mylandscaping_tex3.png'},{name='mylandscaping_tex1.png'},{name='default_gravel.png'},{name='mylandscaping_tex2.png'}},
+	mesh = 'mylandscaping_sphere.obj',
+	tiles = {"myconcrete_concrete.png"},
 	groups = {oddly_breakable_by_hand=2},
 	paramtype = 'light',
 	paramtype2 = 'facedir',
 	selection_box = {
 		type = 'fixed',
 		fixed = {
-			{-0.5, -0.5, -0.5, 1.1, 0.5, 0.5}, 
-			{1.1, -0.5, -0.1, 1.5, -0.3, 0.5}
+			{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}, 
 		}
 	},
 	collision_box = {
 		type = 'fixed',
 		fixed = {
-			{-0.5, -0.5, -0.5, 1.1, 0.5, 0.5},
-			{1.1, -0.5, -0.1, 1.5, -0.3, 0.5}
+			{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 		}
 	},
 

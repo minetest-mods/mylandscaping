@@ -5,6 +5,6 @@ minetest.register_node("mylandscaping:concrete", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {cracky=1},
---	sounds = default.node_sound_stone_defaults(),
+	sounds = default.node_sound_stone_defaults(),
 
 })
