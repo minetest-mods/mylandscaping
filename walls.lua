@@ -42,9 +42,9 @@ local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Column Inside Corner",     "column_ic_t",	"column_ic_t",	colbox_type2, "column_ic_t",  {cracky=2,not_in_creative_inventory=1}},
 {"Column Outside Corner",    "column_oc_t",	"column_oc_t",	colbox_type2, "column_oc_t",  {cracky=2,not_in_creative_inventory=1}},
 {"Column Middle", 	     "column_m_t",	"column_m_t",	colbox_type2, "column_m_t",   {cracky=2,not_in_creative_inventory=1}},
-{"Column Inside Corner Bot", "column_ic_b",	"column_ic_b",	colbox_type2, "column_ic_b",  {not_in_creative_inventory=1}},
-{"Column Outside Corner Bot","column_oc_b",	"column_oc_b",	colbox_type2, "column_oc_b",  {not_in_creative_inventory=1}},
-{"Column Middle Bot", 	     "column_m_b",	"column_m_b",	colbox_type2, "column_m_b",   {not_in_creative_inventory=1}},
+{"Column Inside Corner Bot", "bcolumn_ic_t",	"column_ic_b",	colbox_type2, "column_ic_b",  {not_in_creative_inventory=1}},
+{"Column Outside Corner Bot","bcolumn_oc_t",	"column_oc_b",	colbox_type2, "column_oc_b",  {not_in_creative_inventory=1}},
+{"Column Middle Bot", 	     "bcolumn_m_t",	"column_m_b",	colbox_type2, "column_m_b",   {not_in_creative_inventory=1}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]
