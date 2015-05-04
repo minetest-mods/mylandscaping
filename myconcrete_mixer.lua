@@ -1,3 +1,5 @@
+minetest.register_alias("myconcrete:concrete", 				"mylandscaping:concrete")
+
 local make_gravel = {}
 local output_gravel = {}
 local make_concrete = {}
