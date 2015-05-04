@@ -35,18 +35,10 @@ local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Middle", 		"middle",	"block1_m_t",		colbox_type1, "middle", {cracky=2,not_in_creative_inventory=1}},
 {"Right", 		"right",	"block1_r_t",		colbox_type1, "right",  {cracky=2,not_in_creative_inventory=1}},
 {"Corner", 		"corner",	"block1_c_t",		colbox_type4, "corner", {cracky=2,not_in_creative_inventory=1}},
-{"Column Top", 		"column",	"column_upper",		colbox_type2, "column", {cracky=2,not_in_creative_inventory=1}},
-{"Big Column Top", 	"column_m",	"column_m_upper",	colbox_type5, "column_m", {cracky=2,not_in_creative_inventory=1}},
-{"Inside Corner Column Top", "column_i","column_i_upper",	colbox_type5, "column_i", {cracky=2,not_in_creative_inventory=1}},
-
 {"Left Bot", 		"bleft", 	"block1_l_b",		colbox_type3, "left",   {not_in_creative_inventory=1}},
 {"Middle Bot", 		"bmiddle",	"block1_m_b",		colbox_type3, "middle", {not_in_creative_inventory=1}},
 {"Right Bot", 		"bright",	"block1_r_b",		colbox_type3, "right",  {not_in_creative_inventory=1}},
 {"Corner Bot", 		"bcorner",	"block1_c_b",		colbox_type4, "corner", {not_in_creative_inventory=1}},
-{"Column Bot", 		"bcolumn",	"column_lower",		colbox_type2, "column", {not_in_creative_inventory=1}},
-{"Big Column Bot", 	"bcolumn_m",	"column_m_lower",	colbox_type5, "column_m", {not_in_creative_inventory=1}},
-{"Inside Corner Column Bot", "bcolumn_i","column_i_lower",	colbox_type5, "column_i", {not_in_creative_inventory=1}},
---These are the new names for the corners, feel free to update old code with new meshes or use this.
 {"Column Inside Corner",     "column_ic_t",	"column_ic_t",	colbox_type2, "column_ic_t",  {cracky=2,not_in_creative_inventory=1}},
 {"Column Outside Corner",    "column_oc_t",	"column_oc_t",	colbox_type2, "column_oc_t",  {cracky=2,not_in_creative_inventory=1}},
 {"Column Middle", 	     "column_m_t",	"column_m_t",	colbox_type2, "column_m_t",   {cracky=2,not_in_creative_inventory=1}},

@@ -19,7 +19,7 @@ minetest.register_node('mylandscaping:machine', {
 	selection_box = {
 		type = 'fixed',
 		fixed = {
-			{-0.5, -0.5, -0.5, 1.1, 0.5, 0.5}, -- Right, Bottom, Back, Left, Top, Front
+			{-0.5, -0.5, -0.5, 1.1, 0.5, 0.5}, 
 			{1.1, -0.5, -0.1, 1.5, -0.3, 0.5}
 		}
 	},
@@ -62,9 +62,9 @@ on_construct = function(pos)
 
 		--Styles of columns
 		"label[1,2.5;Columns]"..
-		"image_button[1,3;1,1;mylandscaping_wall5.png;column; ]"..
-		"image_button[2,3;1,1;mylandscaping_wall5.png;column2; ]"..
-		"image_button[3,3;1,1;mylandscaping_wall5.png;column3; ]"..
+		"image_button[1,3;1,1;mylandscaping_wall6.png;column2; ]"..
+		"image_button[2,3;1,1;mylandscaping_wall7.png;column3; ]"..
+		"image_button[3,3;1,1;mylandscaping_wall5.png;column4; ]"..
 
 		"label[6.5,0.5;Patio Stones]"..
 		--Styles of blocks
@@ -100,6 +100,7 @@ or fields["wall4"]
 or fields["column"]
 or fields["column2"]
 or fields["column3"]
+or fields["column4"]
 then 
 
 	if fields["wall1"] then
@@ -134,18 +135,10 @@ then
 			return
 		end
 	end
-	if fields["column"] then
-		make_ok = "0"
-		anzahl = "1"
-		block = "mylandscaping:rwall_column"
-		if inv:is_empty("input") then
-			return
-		end
-	end
 	if fields["column2"] then
 		make_ok = "0"
 		anzahl = "1"
-		block = "mylandscaping:rwall_column_m"
+		block = "mylandscaping:rwall_column_m_t"
 		if inv:is_empty("input") then
 			return
 		end
@@ -153,19 +146,23 @@ then
 	if fields["column3"] then
 		make_ok = "0"
 		anzahl = "1"
-		block = "mylandscaping:rwall_column_i"
+		block = "mylandscaping:rwall_column_ic_t"
 		if inv:is_empty("input") then
 			return
 		end
 	end
-	
+	if fields["column4"] then
+		make_ok = "0"
+		anzahl = "1"
+		block = "mylandscaping:rwall_column_oc_t"
+		if inv:is_empty("input") then
+			return
+		end
+	end
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
-
 ----------------------------------------------------------------------
-----------------------------------------------------------------------
-
 	if instack:get_name()== "mylandscaping:concrete" then
 				material = "cement"
 				make_ok = "1"	
@@ -185,10 +182,7 @@ then
 				material = "cement_red"
 				make_ok = "1"	
 	end
-
 ----------------------------------------------------------------------
-----------------------------------------------------------------------
-  
 		if make_ok == "1" then
 			local give = {}
 			for i = 0, anzahl-1 do
@@ -203,10 +197,7 @@ then
 			inv:set_stack("dye",1,dyestack)
 			end
 		end
-
 end
-
---------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------
 if fields["patio1"]
 or fields["patio2"]
@@ -237,23 +228,14 @@ then
 			return
 		end
 	end
-	
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
-
-
-
 ----------------------------------------------------------------------
-----------------------------------------------------------------------
-
 	if instack:get_name()== "mylandscaping:concrete" then
 				make_ok2 = "1"
 		
 	end
-
 ----------------------------------------------------------------------
-----------------------------------------------------------------------
-  
 		if make_ok2 == "1" then
 			local give = {}
 			for i = 0, anzahl2-1 do
@@ -262,12 +244,8 @@ then
 			instack:take_item()
 			inv:set_stack("input",1,instack)
 		end
-
 end
 end
-
-
-
 })
 
 
