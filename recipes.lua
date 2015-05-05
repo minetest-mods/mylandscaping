@@ -17,6 +17,6 @@ minetest.register_craft({
 })--]]
 
 minetest.register_craftitem('mylandscaping:concrete_bag', {
-	description = 'bag of concrete mix',
+	description = 'Bag of Concrete Mix',
 	inventory_image = 'mylandscaping_cement_bag.png',
 })
