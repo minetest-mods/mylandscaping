@@ -79,7 +79,7 @@ for i in ipairs (block_mat) do
 
 
 
-minetest.register_node('mylandscaping:rwall_'..typ..mat, {
+minetest.register_node('mylandscaping:rwall_'..typ.."_"..mat, {
 	description = desc1..' Retaining Wall '..desc2,
 	drawtype = 'mesh',
 	mesh = 'mylandscaping_'..obj..'.obj',

@@ -62,19 +62,10 @@ on_construct = function(pos)
 		"list[current_name;gravel;5.5,1;1,1;]"..
 		"label[6.5,1;Gravel]"..
 
-		--Cement
-		"label[0.5,2.5;Bag Of]"..
-		"label[0.5,3;Cement]"..
-		"label[1.5,3.5; Clay]"..
-		"list[current_name;clay;1.5,2.5;1,1;]"..
-		"label[2.5,3.5; Sand]"..
-		"list[current_name;sand;2.5,2.5;1,1;]"..
-		"button[4,2.5;1,1;make;Make]"..
-
 		--Concrete
 		"label[5,0.5;Concrete Mixer]"..
-		"list[current_name;cement;5.5,2.5;1,1;]"..
-		"label[6.5,2.5;Cement]"..
+		"list[current_name;sand;5.5,2.5;1,1;]"..
+		"label[6.5,2.5;Sand]"..
 		"button[5.5,3.5;1,1;mix;Mix]"..
 		"list[current_name;concrete;5.5,4.5;1,1;]"..
 		"label[6.5,4.5;Output]"..
@@ -85,9 +76,7 @@ on_construct = function(pos)
 	local inv = meta:get_inventory()
 	inv:set_size("cobble", 1)
 	inv:set_size("gravel", 1)
-	inv:set_size("cement", 1)
 	inv:set_size("concrete", 1)
-	inv:set_size("clay", 1)
 	inv:set_size("sand", 1)
 end,
 
@@ -130,18 +119,24 @@ then
 		make_concrete = "0"
 		amount2 = "2"
 		if inv:is_empty("gravel") or
-		   inv:is_empty("cement") then
+		   inv:is_empty("sand") then
 			return
 		end
 	end
 		local gravelstack = inv:get_stack("gravel", 1)
-		local cementstack = inv:get_stack("cement", 1)
+		local sandstack = inv:get_stack("sand", 1)
 		local concretestack = inv:get_stack("concrete", 1)
 ----------------------------------------------------------------------
 	if gravelstack:get_name()== "default:gravel" and
-	   cementstack:get_name()== "mylandscaping:cement_bag" then
+	   sandstack:get_name()== "default:sand" then
 		make_concrete = "1"
-		output_concrete = "mylandscaping:concrete"
+		output_concrete = "mylandscaping:concrete_bag"
+		
+	end
+	if gravelstack:get_name()== "default:gravel" and
+	   sandstack:get_name()== "default:desert_sand" then
+		make_concrete = "1"
+		output_concrete = "mylandscaping:concrete_bag"
 		
 	end
 ----------------------------------------------------------------------
@@ -152,50 +147,12 @@ then
 			end
 			gravelstack:take_item()
 			inv:set_stack("gravel",1,gravelstack)
-			cementstack:take_item()
-			inv:set_stack("cement",1,cementstack)
-		end
-end
-
-if fields["make"]
-then 
-
-	if fields["make"] then
-		make_cement = "0"
-		amount3 = "4"
-		if inv:is_empty("clay") or
-		   inv:is_empty("sand") then
-			return
-		end
-	end
-		local claystack = inv:get_stack("clay", 1)
-		local sandstack = inv:get_stack("sand", 1)
-		local cementstack = inv:get_stack("cement", 1)
-----------------------------------------------------------------------
-	if claystack:get_name()== "default:clay_lump" and
-	   sandstack:get_name()== "default:sand" then
-		make_cement = "1"
-		output_cement = "mylandscaping:cement_bag"
-		
-	end
-	if claystack:get_name()== "default:clay_lump" and
-	   sandstack:get_name()== "default:desert_sand" then
-		make_cement = "1"
-		output_cement = "mylandscaping:cement_bag"
-		
-	end
-----------------------------------------------------------------------
-		if make_cement == "1" then
-			local give = {}
-			for i = 0, amount3-1 do
-				give[i+1]=inv:add_item("cement",output_cement)
-			end
-			claystack:take_item()
-			inv:set_stack("clay",1,claystack)
 			sandstack:take_item()
-			inv:set_stack("sand",1,sandstack)
+			inv:set_stack("cement",1,sandstack)
 		end
 end
+
+
 end
 })
 

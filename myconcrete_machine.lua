@@ -58,22 +58,22 @@ on_construct = function(pos)
 		"label[1.5,0.5;Retaining Wall]"..
 		--Styles of blocks
 		"label[1,1;Wall Blocks]"..
-		"image_button[1,1.5;1,1;mylandscaping_wall1.png;wall1; ]"..
-		"image_button[2,1.5;1,1;mylandscaping_wall2.png;wall2; ]"..
-		"image_button[3,1.5;1,1;mylandscaping_wall3.png;wall3; ]"..
-		"image_button[4,1.5;1,1;mylandscaping_wall4.png;wall4; ]"..
+		"item_image_button[1,1.5;1,1;mylandscaping:rwall_left_cement;wall1; ]"..
+		"item_image_button[2,1.5;1,1;mylandscaping:rwall_middle_cement;wall2; ]"..
+		"item_image_button[3,1.5;1,1;mylandscaping:rwall_right_cement;wall3; ]"..
+		"item_image_button[4,1.5;1,1;mylandscaping:rwall_corner_cement;wall4; ]"..
 
 		--Styles of columns
 		"label[1,2.5;Columns]"..
-		"image_button[1,3;1,1;mylandscaping_wall6.png;column2; ]"..
-		"image_button[2,3;1,1;mylandscaping_wall7.png;column3; ]"..
-		"image_button[3,3;1,1;mylandscaping_wall5.png;column4; ]"..
+		"item_image_button[1,3;1,1;mylandscaping:rwall_column_m_t_cement;column2; ]"..
+		"item_image_button[2,3;1,1;mylandscaping:rwall_column_ic_t_cement;column3; ]"..
+		"item_image_button[3,3;1,1;mylandscaping:rwall_column_oc_t_cement;column4; ]"..
 
 		"label[6.5,0.5;Patio Stones]"..
 		--Styles of blocks
-		"image_button[6,1.5;1,1;mylandscaping_patio1.png;patio1; ]"..
-		"image_button[7,1.5;1,1;mylandscaping_patio2.png;patio2; ]"..
-		"image_button[8,1.5;1,1;mylandscaping_patio3.png;patio3; ]"..
+		"item_image_button[6,1.5;1,1;mylandscaping:stone_square;patio1; ]"..
+		"item_image_button[7,1.5;1,1;mylandscaping:stone_square_sm;patio2; ]"..
+		"item_image_button[8,1.5;1,1;mylandscaping:stone_pavers;patio3; ]"..
 
 		--Input
 		"label[3,4;  Input]"..
@@ -109,7 +109,7 @@ then
 	if fields["wall1"] then
 		make_ok = "0"
 		anzahl = "2"
-		block = "mylandscaping:rwall_left"
+		block = "mylandscaping:rwall_left_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -117,7 +117,7 @@ then
 	if fields["wall2"] then
 		make_ok = "0"
 		anzahl = "2"
-		block = "mylandscaping:rwall_middle"
+		block = "mylandscaping:rwall_middle_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -125,7 +125,7 @@ then
 	if fields["wall3"] then
 		make_ok = "0"
 		anzahl = "2"
-		block = "mylandscaping:rwall_right"
+		block = "mylandscaping:rwall_right_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -133,7 +133,7 @@ then
 	if fields["wall4"] then
 		make_ok = "0"
 		anzahl = "2"
-		block = "mylandscaping:rwall_corner"
+		block = "mylandscaping:rwall_corner_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -141,7 +141,7 @@ then
 	if fields["column2"] then
 		make_ok = "0"
 		anzahl = "1"
-		block = "mylandscaping:rwall_column_m_t"
+		block = "mylandscaping:rwall_column_m_t_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -149,7 +149,7 @@ then
 	if fields["column3"] then
 		make_ok = "0"
 		anzahl = "1"
-		block = "mylandscaping:rwall_column_ic_t"
+		block = "mylandscaping:rwall_column_ic_t_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -157,7 +157,7 @@ then
 	if fields["column4"] then
 		make_ok = "0"
 		anzahl = "1"
-		block = "mylandscaping:rwall_column_oc_t"
+		block = "mylandscaping:rwall_column_oc_t_"
 		if inv:is_empty("input") then
 			return
 		end
