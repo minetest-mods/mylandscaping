@@ -34,9 +34,15 @@ minetest.register_node('mylandscaping:mixer', {
 can_dig = function(pos,player)
 	local meta = minetest.env:get_meta(pos);
 	local inv = meta:get_inventory()
-	if not inv:is_empty("input") then
+	if player:get_player_name() ~= meta:get_string("owner") then
 		return false
-	elseif not inv:is_empty("output") then
+	elseif not inv:is_empty("cobble") then
+		return false
+	elseif not inv:is_empty("gravel") then
+		return false
+	elseif not inv:is_empty("concrete") then
+		return false
+	elseif not inv:is_empty("sand") then
 		return false
 	end
 	return true
