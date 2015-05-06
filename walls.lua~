@@ -87,7 +87,7 @@ minetest.register_node('mylandscaping:rwall_'..typ.."_"..mat, {
 	groups = grup,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	drop = 'mylandscaping:rwall_'..drops..mat,
+	drop = 'mylandscaping:rwall_'..drops.."_"..mat,
 	selection_box = colbox,
 	collision_box = colbox,
 
