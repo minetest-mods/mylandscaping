@@ -1,5 +1,5 @@
 # Mod Contributors
-Natan
+Nathan
 Don
 
 # mylandscaping
@@ -13,3 +13,4 @@ This is a Minetest mod that adds retaining walls and column nodes.
 
 ## Dependencies
 - default
+- bucket
