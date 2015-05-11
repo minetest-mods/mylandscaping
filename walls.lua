@@ -74,8 +74,14 @@ for i in ipairs (block_mat) do
 	local img2 = block_mat[i][4]
 	local img3 = block_mat[i][5]
 
-
-
+local color_tab = {
+"cement",
+"cement_tan",
+"cement_autumn",
+"cement_red",
+}
+for i = 1,#color_tab do
+local colors = color_tab[i]
 
 
 
@@ -87,6 +93,7 @@ minetest.register_node('mylandscaping:rwall_'..typ.."_"..mat, {
 	groups = grup,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
+	sounds = default.node_sound_stone_defaults(),
 	drop = 'mylandscaping:rwall_'..drops.."_"..mat,
 	selection_box = colbox,
 	collision_box = colbox,
@@ -96,9 +103,9 @@ after_place_node = function(pos, placer, itemstack, pointed_thing)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
 	local node = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z})
-	if nodeu.name == "mylandscaping:rwall_"..typ.."_"..mat then
+	if nodeu.name == "mylandscaping:rwall_"..typ.."_"..colors then
 	   minetest.set_node(pos,{name="mylandscaping:rwall_"..typ.."_"..mat,param2=nodeu.param2})
-	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_b"..typ.."_"..mat,param2=nodeu.param2})
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_b"..typ.."_"..colors,param2=nodeu.param2})
 	end
 	if nodea.name == "mylandscaping:rwall_"..typ..mat then
 	   minetest.set_node(pos,{name="mylandscaping:rwall_b"..typ.."_"..mat,param2=node.param2})
@@ -123,6 +130,6 @@ end,
 
 end
 end
-
+end
 
 

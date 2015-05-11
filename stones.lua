@@ -2,6 +2,9 @@ local stone_types = { --style, desc, img1, img2
 	{"square", "Square", "concrete", "square"},
 	{"square_sm", "Small Square", "concrete", "square_sm"},
 	{"pavers", "Paver", "concrete", "pavers"},
+	{"mess", "Messy Paver", "concrete", "mess"},
+	{"pin", "Pinwheel", "concrete", "pin"},
+	{"diamond", "Diamond Corner", "concrete", "diamond"},
 }
 for i in ipairs (stone_types) do
 	local style = stone_types[i][1]
@@ -22,6 +25,7 @@ minetest.register_node("mylandscaping:stone_"..style,{
 		},
 	paramtype = "light",
 	groups = {cracky = 2},
+	sounds = default.node_sound_stone_defaults(),
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -54,7 +58,7 @@ minetest.register_node("mylandscaping:stone_"..style.."_sand",{
 	drop = "mylandscaping:stone_"..style,
 	paramtype = "light",
 	groups = {cracky = 2, not_in_creative_inventory = 1},
-
+	sounds = default.node_sound_stone_defaults(),
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		minetest.set_node(pos,{name = "default:sand"})
 	end,
