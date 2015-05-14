@@ -7,6 +7,8 @@ local stone = {}
 local make_ok2 = {}
 local anzahl2 = {}
 
+
+
 minetest.register_node('mylandscaping:machine', {
 	description = 'concrete forms',
 	drawtype = 'mesh',
@@ -55,7 +57,7 @@ after_place_node = function(pos, placer, itemstack)
 
 on_construct = function(pos)
 	local meta = minetest.env:get_meta(pos)
-	meta:set_string("formspec", "invsize[10,10;]"..
+	meta:set_string("formspec", "size[10,10;]"..
 		"background[-0.15,-0.25;10.40,10.75;mylandscaping_background.png]"..
 		"label[1.5,0.5;Retaining Wall]"..
 		--Styles of blocks
@@ -73,9 +75,13 @@ on_construct = function(pos)
 
 		"label[6.5,0.5;Patio Stones]"..
 		--Styles of blocks
-		"item_image_button[6,1.5;1,1;mylandscaping:stone_square;patio1; ]"..
-		"item_image_button[7,1.5;1,1;mylandscaping:stone_square_sm;patio2; ]"..
-		"item_image_button[8,1.5;1,1;mylandscaping:stone_pavers;patio3; ]"..
+		"item_image_button[5.5,1.5;1,1;mylandscaping:stone_squarecement;patio1; ]"..
+		"item_image_button[6.5,1.5;1,1;mylandscaping:stone_square_smcement;patio2; ]"..
+		"item_image_button[7.5,1.5;1,1;mylandscaping:stone_square_xsmcement;patio7; ]"..
+		"item_image_button[8.5,1.5;1,1;mylandscaping:stone_paverscement;patio3; ]"..
+		"item_image_button[6,2.5;1,1;mylandscaping:stone_ashlarcement;patio4; ]"..
+		"item_image_button[7,2.5;1,1;mylandscaping:stone_flagstonecement;patio5; ]"..
+		"item_image_button[8,2.5;1,1;mylandscaping:stone_pinwheelcement;patio6; ]"..
 
 		--Input
 		"label[3,4;  Input]"..
@@ -97,6 +103,29 @@ end,
 on_receive_fields = function(pos, formname, fields, sender)
 	local meta = minetest.env:get_meta(pos)
 	local inv = meta:get_inventory()
+
+local color_tab = {
+{"black", 	"Black",		"dye:black"},
+{"blue", 	"Blue",			"dye:blue"},
+{"brown", 	"Brown",		"dye:brown"},
+{"cyan", 	"Cyan",			"dye:cyan"},
+{"dark_green", 	"Dark Green",		"dye:dark_green"},
+{"dark_grey", 	"Dark Grey",		"dye:dark_grey"},
+{"green", 	"Green",		"dye:green"},
+{"grey", 	"Grey",			"dye:grey"},
+{"magenta", 	"Magenta",		"dye:magenta"},
+{"orange",	"Orange",		"dye:orange"},
+{"pink", 	"Pink",			"dye:pink"},
+{"red", 	"Red",			"dye:red"},
+{"violet", 	"Violet",		"dye:violet"},
+{"white", 	"White",		"dye:white"},
+{"yellow", 	"Yellow",		"dye:yellow"},
+{"cement", 	"",		""},
+}
+for i in ipairs (color_tab) do
+local col = color_tab[i][1]
+local coldesc = color_tab[i][2]
+local dyecol = color_tab[i][3]
 
 if fields["wall1"]
 or fields["wall2"]
@@ -168,36 +197,26 @@ then
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
 ----------------------------------------------------------------------
-	if instack:get_name()== "mylandscaping:concrete_bag" then
-				material = "cement"
+
+	if instack:get_name()== "mylandscaping:concrete_bag" and
+	   dyestack:get_name()== dyecol then
+				material = col
 				make_ok = "1"	
 	end
-	if instack:get_name()== "mylandscaping:concrete_bag" and
-	   dyestack:get_name()== "dye:yellow" then
-				material = "cement_tan"
-				make_ok = "1"	
-	end
-	if instack:get_name()== "mylandscaping:concrete_bag" and
-	   dyestack:get_name()== "dye:orange" then
-				material = "cement_autumn"
-				make_ok = "1"	
-	end
-	if instack:get_name()== "mylandscaping:concrete_bag" and
-	   dyestack:get_name()== "dye:red" then
-				material = "cement_red"
+	if instack:get_name()== "myconcrete:concrete" and
+	   dyestack:get_name()== dyecol then
+				material = col
 				make_ok = "1"	
 	end
 ----------------------------------------------------------------------
 		if make_ok == "1" then
 			local give = {}
 			for i = 0, anzahl-1 do
-				give[i+1]=inv:add_item("output",block..material)
+				give[i+1]=inv:add_item("output",block..col)
 			end
 			instack:take_item()
 			inv:set_stack("input",1,instack)
-			if dyestack:get_name() == "dye:yellow" or
-			   dyestack:get_name() == "dye:orange" or
-			   dyestack:get_name() == "dye:red" then
+			if dyestack:get_name() == "dye:"..col then
 			dyestack:take_item()
 			inv:set_stack("dye",1,dyestack)
 			end
@@ -207,6 +226,10 @@ end
 if fields["patio1"]
 or fields["patio2"]
 or fields["patio3"]
+or fields["patio4"]
+or fields["patio5"]
+or fields["patio6"]
+or fields["patio7"]
 then 
 
 	if fields["patio1"] then
@@ -225,6 +248,14 @@ then
 			return
 		end
 	end
+	if fields["patio7"] then
+		make_ok2 = "0"
+		anzahl2 = "2"
+		stone = "mylandscaping:stone_square_xsm"
+		if inv:is_empty("input") then
+			return
+		end
+	end
 	if fields["patio3"] then
 		make_ok2 = "0"
 		anzahl2 = "2"
@@ -233,10 +264,43 @@ then
 			return
 		end
 	end
+	if fields["patio4"] then
+		make_ok2 = "0"
+		anzahl2 = "2"
+		stone = "mylandscaping:stone_ashlar"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["patio5"] then
+		make_ok2 = "0"
+		anzahl2 = "2"
+		stone = "mylandscaping:stone_flagstone"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["patio6"] then
+		make_ok2 = "0"
+		anzahl2 = "2"
+		stone = "mylandscaping:stone_pinwheel"
+		if inv:is_empty("input") then
+			return
+		end
+	end
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
+		local dyestack = inv:get_stack("dye", 1)
+
+
 ----------------------------------------------------------------------
-	if instack:get_name()== "mylandscaping:concrete_bag" then
+	if instack:get_name()== "mylandscaping:concrete_bag" and
+	   dyestack:get_name()== dyecol then
+				make_ok2 = "1"
+		
+	end
+	if instack:get_name()== "myconcrete:concrete" and
+	   dyestack:get_name()== dyecol then
 				make_ok2 = "1"
 		
 	end
@@ -244,11 +308,14 @@ then
 		if make_ok2 == "1" then
 			local give = {}
 			for i = 0, anzahl2-1 do
-				give[i+1]=inv:add_item("output",stone)
+				give[i+1]=inv:add_item("output",stone..col)
 			end
+			dyestack:take_item()
+			inv:set_stack("dye",1,dyestack)
 			instack:take_item()
 			inv:set_stack("input",1,instack)
 		end
+end
 end
 end
 })

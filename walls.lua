@@ -75,28 +75,42 @@ for i in ipairs (block_mat) do
 	local img = block_mat[i][3]
 	local img2 = block_mat[i][4]
 	local img3 = block_mat[i][5]
-
 local color_tab = {
-"cement",
-"cement_tan",
-"cement_autumn",
-"cement_red",
+{"black", 	"Black",		"^[colorize:black:150"},
+{"blue", 	"Blue",			"^[colorize:#0404B4:100"},
+{"brown", 	"Brown",		"^[colorize:#190B07:100"},
+{"cyan", 	"Cyan",			"^[colorize:cyan:100"},
+{"dark_green", 	"Dark Green",		"^[colorize:#071907:150"},
+{"dark_grey", 	"Dark Grey",		"^[colorize:black:150"},
+{"green", 	"Green",		"^[colorize:green:100"},
+{"grey", 	"Grey",			"^[colorize:black:100"},
+{"magenta", 	"Magenta",		"^[colorize:magenta:100"},
+{"orange",	"Orange",		"^[colorize:orange:100"},
+{"pink", 	"Pink",			"^[colorize:#FE2E9A:100"},
+{"red", 	"Red",			"^[colorize:#B40404:100"},
+{"violet", 	"Violet",		"^[colorize:#2F0B3A:100"},
+{"white", 	"White",		"^[colorize:white:100"},
+{"yellow", 	"Yellow",		"^[colorize:yellow:100"},
+{"cement", 	"Concrete",		""},
 }
-for i = 1,#color_tab do
-local colors = color_tab[i]
+for i in ipairs (color_tab) do
+local col = color_tab[i][1]
+local coldesc = color_tab[i][2]
+local alpha = color_tab[i][3]
 
 
 
-minetest.register_node('mylandscaping:rwall_'..typ.."_"..mat, {
+
+
+minetest.register_node('mylandscaping:rwall_'..typ.."_"..col, {
 	description = desc2,
 	drawtype = 'mesh',
 	mesh = 'mylandscaping_'..obj..'.obj',
-	tiles = {{name=img..img2}, {name=img3..img2}},
+	tiles = {{name=img..alpha}, {name=img3..alpha}},
 	groups = grup,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	sounds = default.node_sound_stone_defaults(),
-	drop = 'mylandscaping:rwall_'..drops.."_"..mat,
+	drop = 'mylandscaping:rwall_'..drops.."_"..col,
 	selection_box = colbox,
 	collision_box = colbox,
 
@@ -105,12 +119,12 @@ after_place_node = function(pos, placer, itemstack, pointed_thing)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
 	local node = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z})
-	if nodeu.name == "mylandscaping:rwall_"..typ.."_"..colors then
-	   minetest.set_node(pos,{name="mylandscaping:rwall_"..typ.."_"..mat,param2=nodeu.param2})
-	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_b"..typ.."_"..colors,param2=nodeu.param2})
+	if nodeu.name == "mylandscaping:rwall_"..typ.."_"..col then
+	   minetest.set_node(pos,{name="mylandscaping:rwall_"..typ.."_"..col,param2=nodeu.param2})
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_b"..typ.."_"..col,param2=nodeu.param2})
 	end
-	if nodea.name == "mylandscaping:rwall_"..typ..mat then
-	   minetest.set_node(pos,{name="mylandscaping:rwall_b"..typ.."_"..mat,param2=node.param2})
+	if nodea.name == "mylandscaping:rwall_"..typ..col then
+	   minetest.set_node(pos,{name="mylandscaping:rwall_b"..typ.."_"..col,param2=node.param2})
 	end
 end,
 
@@ -120,9 +134,9 @@ after_destruct = function(pos, oldnode)
 	local nodeu2 = minetest.get_node({x=pos.x,y=pos.y-2,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
 
-	if nodeu.name == "mylandscaping:rwall_b"..typ.."_"..mat and
+	if nodeu.name == "mylandscaping:rwall_b"..typ.."_"..col and
 	   nodea.name == "air" then
-	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_"..typ.."_"..mat,param2=nodeu.param2})
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_"..typ.."_"..col,param2=nodeu.param2})
 	end
 
 
