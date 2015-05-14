@@ -268,6 +268,7 @@ minetest.register_node("mylandscaping:stone_"..style..col,{
 	node_box = cbox,
 	selection_box = stone_cbox,
 	collision_box = stone_cbox,
+	sounds = default.node_sound_stone_defaults(),
 	
 	after_place_node = function(pos, placer, itemstack, pointed_thing)
 		
@@ -298,6 +299,7 @@ minetest.register_node("mylandscaping:stone_"..style.."_sand"..col,{
 	node_box = scbox,
 	selection_box = sstone_cbox,
 	collision_box = sstone_cbox,
+	sounds = default.node_sound_stone_defaults(),
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		minetest.set_node(pos,{name = "default:sand"})
 	end,

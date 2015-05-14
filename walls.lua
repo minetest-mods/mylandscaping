@@ -113,6 +113,7 @@ minetest.register_node('mylandscaping:rwall_'..typ.."_"..col, {
 	drop = 'mylandscaping:rwall_'..drops.."_"..col,
 	selection_box = colbox,
 	collision_box = colbox,
+	sounds = default.node_sound_stone_defaults(),
 
 
 after_place_node = function(pos, placer, itemstack, pointed_thing)
