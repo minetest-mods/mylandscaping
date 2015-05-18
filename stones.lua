@@ -264,7 +264,7 @@ minetest.register_node("mylandscaping:stone_"..style..col,{
 		"mylandscaping_"..img1..".png"..alpha,
 		},
 	paramtype = "light",
-	groups = {cracky = 2},
+	groups = {cracky = 2, not_in_creative_inventory=1},
 	node_box = cbox,
 	selection_box = stone_cbox,
 	collision_box = stone_cbox,

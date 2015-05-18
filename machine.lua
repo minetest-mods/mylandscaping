@@ -1,13 +1,29 @@
 local material = {}
 local block = {}
-local make_ok = {}
-local anzahl = {}
+local make_ok = false
+local anzahl = 0
 local material2 = {}
 local stone = {}
-local make_ok2 = {}
-local anzahl2 = {}
 
 
+local color_tab = {
+{"black", 	"Black",		"dye:black"},
+{"blue", 	"Blue",			"dye:blue"},
+{"brown", 	"Brown",		"dye:brown"},
+{"cyan", 	"Cyan",			"dye:cyan"},
+{"dark_green", 	"Dark Green",		"dye:dark_green"},
+{"dark_grey", 	"Dark Grey",		"dye:dark_grey"},
+{"green", 	"Green",		"dye:green"},
+{"grey", 	"Grey",			"dye:grey"},
+{"magenta", 	"Magenta",		"dye:magenta"},
+{"orange",	"Orange",		"dye:orange"},
+{"pink", 	"Pink",			"dye:pink"},
+{"red", 	"Red",			"dye:red"},
+{"violet", 	"Violet",		"dye:violet"},
+{"white", 	"White",		"dye:white"},
+{"yellow", 	"Yellow",		"dye:yellow"},
+{"cement", 	"",		""},
+}
 
 minetest.register_node('mylandscaping:machine', {
 	description = 'concrete forms',
@@ -36,15 +52,14 @@ minetest.register_node('mylandscaping:machine', {
 can_dig = function(pos,player)
 	local meta = minetest.env:get_meta(pos);
 	local inv = meta:get_inventory()
-	
-	if player:get_player_name() ~= meta:get_string("owner") then
-		return false
-	elseif not inv:is_empty("input") then
-		return false
-	elseif not inv:is_empty("output") then
-		return false
+	if player:get_player_name() == meta:get_string("owner") and
+	   inv:is_empty("input") and
+	   inv:is_empty("input") and
+	   inv:is_empty("output") then
+		return true
+	else
+	return false
 	end
-	return true
 
 
 end,
@@ -104,24 +119,6 @@ on_receive_fields = function(pos, formname, fields, sender)
 	local meta = minetest.env:get_meta(pos)
 	local inv = meta:get_inventory()
 
-local color_tab = {
-{"black", 	"Black",		"dye:black"},
-{"blue", 	"Blue",			"dye:blue"},
-{"brown", 	"Brown",		"dye:brown"},
-{"cyan", 	"Cyan",			"dye:cyan"},
-{"dark_green", 	"Dark Green",		"dye:dark_green"},
-{"dark_grey", 	"Dark Grey",		"dye:dark_grey"},
-{"green", 	"Green",		"dye:green"},
-{"grey", 	"Grey",			"dye:grey"},
-{"magenta", 	"Magenta",		"dye:magenta"},
-{"orange",	"Orange",		"dye:orange"},
-{"pink", 	"Pink",			"dye:pink"},
-{"red", 	"Red",			"dye:red"},
-{"violet", 	"Violet",		"dye:violet"},
-{"white", 	"White",		"dye:white"},
-{"yellow", 	"Yellow",		"dye:yellow"},
-{"cement", 	"",		""},
-}
 for i in ipairs (color_tab) do
 local col = color_tab[i][1]
 local coldesc = color_tab[i][2]
@@ -138,56 +135,56 @@ or fields["column4"]
 then 
 
 	if fields["wall1"] then
-		make_ok = "0"
-		anzahl = "2"
+		make_ok = false
+		anzahl = 2
 		block = "mylandscaping:rwall_left_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["wall2"] then
-		make_ok = "0"
-		anzahl = "2"
+		make_ok = false
+		anzahl = 2
 		block = "mylandscaping:rwall_middle_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["wall3"] then
-		make_ok = "0"
-		anzahl = "2"
+		make_ok = false
+		anzahl = 2
 		block = "mylandscaping:rwall_right_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["wall4"] then
-		make_ok = "0"
-		anzahl = "2"
+		make_ok = false
+		anzahl = 2
 		block = "mylandscaping:rwall_corner_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["column2"] then
-		make_ok = "0"
-		anzahl = "1"
+		make_ok = false
+		anzahl = 1
 		block = "mylandscaping:rwall_column_m_t_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["column3"] then
-		make_ok = "0"
-		anzahl = "1"
+		make_ok = false
+		anzahl = 1
 		block = "mylandscaping:rwall_column_ic_t_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["column4"] then
-		make_ok = "0"
-		anzahl = "1"
+		make_ok = false
+		anzahl = 1
 		block = "mylandscaping:rwall_column_oc_t_"
 		if inv:is_empty("input") then
 			return
@@ -201,15 +198,15 @@ then
 	if instack:get_name()== "mylandscaping:concrete_bag" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = "1"	
+				make_ok = true	
 	end
-	if instack:get_name()== "myconcrete:concrete" and
+	 if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = "1"	
+				make_ok = true	
 	end
 ----------------------------------------------------------------------
-		if make_ok == "1" then
+		if make_ok == true then
 			local give = {}
 			for i = 0, anzahl-1 do
 				give[i+1]=inv:add_item("output",block..col)
@@ -233,56 +230,56 @@ or fields["patio7"]
 then 
 
 	if fields["patio1"] then
-		make_ok2 = "0"
-		anzahl2 = "2"
+		make_ok = false
+		anzahl = 2
 		stone = "mylandscaping:stone_square"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["patio2"] then
-		make_ok2 = "0"
-		anzahl2 = "2"
+		make_ok = false
+		anzahl = 2
 		stone = "mylandscaping:stone_square_sm"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["patio7"] then
-		make_ok2 = "0"
-		anzahl2 = "2"
+		make_ok = false
+		anzahl = 2
 		stone = "mylandscaping:stone_square_xsm"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["patio3"] then
-		make_ok2 = "0"
-		anzahl2 = "2"
+		make_ok = false
+		anzahl = 2
 		stone = "mylandscaping:stone_pavers"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["patio4"] then
-		make_ok2 = "0"
-		anzahl2 = "2"
+		make_ok = false
+		anzahl = 2
 		stone = "mylandscaping:stone_ashlar"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["patio5"] then
-		make_ok2 = "0"
-		anzahl2 = "2"
+		make_ok = false
+		anzahl = 2
 		stone = "mylandscaping:stone_flagstone"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["patio6"] then
-		make_ok2 = "0"
-		anzahl2 = "2"
+		make_ok = false
+		anzahl = 2
 		stone = "mylandscaping:stone_pinwheel"
 		if inv:is_empty("input") then
 			return
@@ -292,22 +289,20 @@ then
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
 
-
-----------------------------------------------------------------------
 	if instack:get_name()== "mylandscaping:concrete_bag" and
 	   dyestack:get_name()== dyecol then
-				make_ok2 = "1"
+				make_ok = true
 		
 	end
 	if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== dyecol then
-				make_ok2 = "1"
+				make_ok = true
 		
 	end
 ----------------------------------------------------------------------
-		if make_ok2 == "1" then
+		if make_ok == true then
 			local give = {}
-			for i = 0, anzahl2-1 do
+			for i = 0, anzahl-1 do
 				give[i+1]=inv:add_item("output",stone..col)
 			end
 			dyestack:take_item()

@@ -1,15 +1,6 @@
 
 minetest.register_alias("myconcrete:concrete", 	"mylandscaping:concrete")
 
-local make_gravel = {}
-local output_gravel = {}
-local make_concrete = {}
-local output_concrete = {}
-local make_cement = {}
-local output_cement = {}
-local amount = {}
-local amount2 = {}
-local amount3 = {}
 
 minetest.register_node('mylandscaping:mixer', {
 	description = 'concrete mixer',
@@ -36,18 +27,15 @@ minetest.register_node('mylandscaping:mixer', {
 can_dig = function(pos,player)
 	local meta = minetest.env:get_meta(pos);
 	local inv = meta:get_inventory()
-	if player:get_player_name() ~= meta:get_string("owner") then
-		return false
-	elseif not inv:is_empty("cobble") then
-		return false
-	elseif not inv:is_empty("gravel") then
-		return false
-	elseif not inv:is_empty("concrete") then
-		return false
-	elseif not inv:is_empty("sand") then
-		return false
+	if player:get_player_name() == meta:get_string("owner") and
+	   inv:is_empty("cobble") and
+	   inv:is_empty("gravel") and
+	   inv:is_empty("concrete") and
+	   inv:is_empty("sand") then
+		return true
+	else
+	return false
 	end
-	return true
 end,
 
 after_place_node = function(pos, placer, itemstack)
@@ -88,82 +76,7 @@ on_construct = function(pos)
 	inv:set_size("concrete", 1)
 	inv:set_size("sand", 1)
 end,
---[[
-on_receive_fields = function(pos, formname, fields, sender)
-	local meta = minetest.env:get_meta(pos)
-	local inv = meta:get_inventory()
 
-if fields["crush"]
-then 
-
-	if fields["crush"] then
-		grave = "0"
-		amount = "1"
-		if inv:is_empty("cobble") then
-			return
-		end
-	end
-		local cobblestack = inv:get_stack("cobble", 1)
-		local gravelstack = inv:get_stack("gravel", 1)
-----------------------------------------------------------------------
-	if cobblestack:get_name()== "default:cobble" then
-				output_gravel = "default:gravel"
-				make_gravel = "1"	
-	end
-----------------------------------------------------------------------
-		if make_gravel == "1" then
-			local give = {}
-			for i = 0, amount-1 do
-				give[i+1]=inv:add_item("gravel",output_gravel)
-			end
-			cobblestack:take_item()
-			inv:set_stack("cobble",1,cobblestack)
-		end
-end
---------------------------------------------------------------------------------------
-if fields["mix"]
-then 
-
-	if fields["mix"] then
-		make_concrete = "0"
-		amount2 = "2"
-		if inv:is_empty("gravel") or
-		   inv:is_empty("sand") then
-			return
-		end
-	end
-		local gravelstack = inv:get_stack("gravel", 1)
-		local sandstack = inv:get_stack("sand", 1)
-		local concretestack = inv:get_stack("concrete", 1)
-----------------------------------------------------------------------
-	if gravelstack:get_name()== "default:gravel" and
-	   sandstack:get_name()== "default:sand" then
-		make_concrete = "1"
-		output_concrete = "mylandscaping:concrete_bag"
-		
-	end
-	if gravelstack:get_name()== "default:gravel" and
-	   sandstack:get_name()== "default:desert_sand" then
-		make_concrete = "1"
-		output_concrete = "mylandscaping:concrete_bag"
-		
-	end
-----------------------------------------------------------------------
-		if make_concrete == "1" then
-			local give = {}
-			for i = 0, amount2-1 do
-				give[i+1]=inv:add_item("concrete",output_concrete)
-			end
-			gravelstack:take_item()
-			inv:set_stack("gravel",1,gravelstack)
-			sandstack:take_item()
-			inv:set_stack("cement",1,sandstack)
-		end
-end
-
-
-end
---]]
 on_timer = function(pos)
 		local timer 	=	minetest.get_node_timer(pos)
 		local meta 	= 	minetest.get_meta(pos)
@@ -171,7 +84,6 @@ on_timer = function(pos)
 		local cobble 	= 	inv:get_stack("cobble", 1)
 		local gravel 	= 	inv:get_stack("gravel", 1)
 		local sand 	= 	inv:get_stack("sand", 1)
-		local concrete 	= 	inv:get_stack("concrete", 1)
 ----------------------------------------------------------------------
 	if cobble:get_name() == "default:cobble" then
 			inv:add_item("gravel","default:gravel")
@@ -179,7 +91,8 @@ on_timer = function(pos)
 			inv:set_stack("cobble",1,cobble)	
 	end
 	if gravel:get_name() == "default:gravel" and
-	   sand:get_name() == "default:sand" then
+	   sand:get_name() == "default:sand" or
+	   sand:get_name() == "default:desert_sand" then
 			inv:add_item("concrete","mylandscaping:concrete_bag")
 			gravel:take_item()
 			inv:set_stack("gravel",1,gravel)
