@@ -7,9 +7,11 @@ local colbox_type2 = { --wall
 	fixed = {{-.5, -.5, .4, .5, 0, .2},}
 }
 
-local block_type1 = { -- desc2, obj, colbox, grup
+local block_type1 = { -- desc2, obj, colbox, grup,
 {"Deco Wall Round Top",  "wall_r",	colbox_type2, 	{cracky=2,not_in_creative_inventory=visible}},
 {"Deco Wall Flat Top",	 "wall_f",	colbox_type2, 	{cracky=2,not_in_creative_inventory=visible}},
+{'Deco Wall Peaked Top', 'wall_p', 	colbox_type2,	{cracky=2,not_in_creative_inventory=visible}},
+{'Deco Wall Random Top', 'wall_ra',	colbox_type2,	{cracky=2,not_in_creative_inventory=visible}},
 {"Deco Wall Column", 	 "column",	colbox_type1, 	{cracky=2,not_in_creative_inventory=visible}},
 }
 for i in ipairs (block_type1) do
@@ -44,6 +46,7 @@ local alpha = color_tab[i][3]
 minetest.register_node('mylandscaping:deco_'..obj..'_'..col, {
 	description = desc2.." "..coldesc,
 	drawtype = 'mesh',
+	inventory_image = invimg,
 	mesh = 'mylandscaping_deco_'..obj..'.obj',
 	tiles = {{name='mylandscaping_block_split.png'..alpha}, {name='mylandscaping_block_smooth.png'..alpha}},
 	groups = grup,
