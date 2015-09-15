@@ -21,20 +21,29 @@ retaining_walls =
 	'label[0,1.75;Freeport]'..
 	'label[0,2.75;Madison]'..
 	'label[0,3.75;Adaridge]'..
+	--Freeport walls
 	'label[1.5,1;Wall Blocks]'..
-	'item_image_button[2,1.5;1,1;mylandscaping:rwall_left_cement;wall1; ]'..
-	'item_image_button[3,1.5;1,1;mylandscaping:rwall_middle_cement;wall2; ]'..
-	'item_image_button[4,1.5;1,1;mylandscaping:rwall_right_cement;wall3; ]'..
-	'item_image_button[5,1.5;1,1;mylandscaping:rwall_corner_cement;wall4; ]'..
-	--Styles of columns
+	'item_image_button[2,1.5;1,1;mylandscaping:fwall_left_cement;fwall1; ]'..
+	'item_image_button[3,1.5;1,1;mylandscaping:fwall_middle_cement;fwall2; ]'..
+	'item_image_button[4,1.5;1,1;mylandscaping:fwall_right_cement;fwall3; ]'..
+	'item_image_button[5,1.5;1,1;mylandscaping:fwall_corner_cement;fwall4; ]'..
+	--Freeport columns
 	'label[6,1;Columns]'..
-	'item_image_button[6.5,1.5;1,1;mylandscaping:rwall_column_m_t_cement;column2; ]'..
-	'item_image_button[7.5,1.5;1,1;mylandscaping:rwall_column_ic_t_cement;column3; ]'..
-	'item_image_button[8.5,1.5;1,1;mylandscaping:rwall_column_oc_t_cement;column4; ]'..
+	'item_image_button[6.5,1.5;1,1;mylandscaping:fwall_column_m_t_cement;fcolumn2; ]'..
+	'item_image_button[7.5,1.5;1,1;mylandscaping:fwall_column_ic_t_cement;fcolumn3; ]'..
+	'item_image_button[8.5,1.5;1,1;mylandscaping:fwall_column_oc_t_cement;fcolumn4; ]'..
+	--Madison walls
+	--Madison columns
+	--Adaridge walls
+	'item_image_button[3,3.5;1,1;mylandscaping:awall_middle_cement;awall2; ]'..
+	--Adaridge colums
 	input
 
 patio_pavers =
 	form..
+	'label[1,1.5;Place pavers on top of sand]'..
+	'label[1,2;to achieve best fit, and to be]'..
+	'label[1,2.5;able to place patio decorations.]'..
 	'item_image_button[5.5,1.5;1,1;mylandscaping:stone_squarecement;patio1; ]'..
 	'item_image_button[6.5,1.5;1,1;mylandscaping:stone_square_smcement;patio2; ]'..
 	'item_image_button[7.5,1.5;1,1;mylandscaping:stone_square_xsmcement;patio7; ]'..
@@ -47,13 +56,13 @@ patio_pavers =
 deco_walls =
 	form..
 	'image_button[2,1.5;1,1;mylandscaping_deco_scallop.png;deco1;]'..
-	'tooltip[deco1;'..('Scalloped decorative wall')..']'..
+	'tooltip[deco1;Scalloped decorative wall]'..
 	'image_button[3,1.5;1,1;mylandscaping_deco_flat.png;deco2;]'..
-	'tooltip[deco2;'..('Flat decorative wall')..']'..
+	'tooltip[deco2;Flat decorative wall]'..
 	'image_button[4,1.5;1,1;mylandscaping_deco_peak.png;deco3;]'..
-	'tooltip[deco3;'..('Peaked decorative wall')..']'..
+	'tooltip[deco3;Peaked decorative wall]'..
 	'image_button[5,1.5;1,1;mylandscaping_deco_random.png;deco4;]'..
-	'tooltip[deco4;'..('Random decorative wall')..']'..
+	'tooltip[deco4;Random decorative wall]'..
 	'image_button[6,1.5;1,1;mylandscaping_deco_column.png;deco5;]'..
-	'tooltip[deco5;'..('Decorative column')..']'..
+	'tooltip[deco5;Decorative column]'..
 	input

@@ -1,9 +1,11 @@
 --configs
 -- change this to make blocks show in creative inventory. 0 will show, 1 is invisible
-visible = 1
+visible = 0
 
 --Load File
-dofile(minetest.get_modpath('mylandscaping')..'/walls.lua')
+dofile(minetest.get_modpath('mylandscaping')..'/walls_freeport.lua')
+dofile(minetest.get_modpath('mylandscaping')..'/walls_madison.lua')
+dofile(minetest.get_modpath('mylandscaping')..'/walls_adaridge.lua')
 dofile(minetest.get_modpath('mylandscaping')..'/stones.lua')
 dofile(minetest.get_modpath('mylandscaping')..'/recipes.lua')
 dofile(minetest.get_modpath("mylandscaping").."/machine.lua")
