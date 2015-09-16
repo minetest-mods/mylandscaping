@@ -75,7 +75,7 @@ minetest.register_node('mylandscaping:awall_'..typ.."_"..col, {
 	description = desc2.." "..coldesc,
 	drawtype = 'mesh',
 	mesh = 'mylandscaping_'..obj..'.obj',
-	tiles = {{name='mylandscaping_block_smooth.png'..alpha}, {name='mylandscaping_adaridge_tex.png'..alpha}},
+	tiles = {name='mylandscaping_adaridge_tex.png'..alpha},
 	groups = grup,
 	paramtype = 'light',
 	paramtype2 = 'facedir',

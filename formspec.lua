@@ -35,7 +35,10 @@ retaining_walls =
 	--Madison walls
 	--Madison columns
 	--Adaridge walls
+	'item_image_button[2,3.5;1,1;mylandscaping:awall_left_cement;awall1; ]'..
 	'item_image_button[3,3.5;1,1;mylandscaping:awall_middle_cement;awall2; ]'..
+	'item_image_button[4,3.5;1,1;mylandscaping:awall_right_cement;awall3; ]'..
+	'item_image_button[5,3.5;1,1;mylandscaping:awall_corner_cement;awall4; ]'..
 	--Adaridge colums
 	input
 
