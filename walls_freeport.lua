@@ -25,20 +25,20 @@ local colbox_type6 = { --corner
 }
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
-{"Retaining Wall Left", 	"left", 	"block1_l_t",	colbox_type1, "left",   	{cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Middle", 	"middle",	"block1_m_t",	colbox_type1, "middle", 	{cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Right", 	"right",	"block1_r_t",	colbox_type1, "right",  	{cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Corner", 	"corner",	"block1_c_t",	colbox_type4, "corner", 	{cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Left Bot", 	"bleft", 	"block1_l_b",	colbox_type3, "left",   	{not_in_creative_inventory=visible}},
-{"Retaining Wall Middle Bot", 	"bmiddle",	"block1_m_b",	colbox_type3, "middle", 	{not_in_creative_inventory=visible}},
-{"Retaining Wall Right Bot", 	"bright",	"block1_r_b",	colbox_type3, "right",  	{not_in_creative_inventory=visible}},
-{"Retaining Wall Corner Bot", 	"bcorner",	"block1_c_b",	colbox_type4, "corner", 	{not_in_creative_inventory=visible}},
-{"Column Inside Corner",     	"column_ic_t",	"column_ic_t",	colbox_type5, "column_ic_t",  	{cracky=2,not_in_creative_inventory=visible}},
-{"Column Outside Corner",   	"column_oc_t",	"column_oc_t",	colbox_type2, "column_oc_t",  	{cracky=2,not_in_creative_inventory=visible}},
-{"Column Middle", 	    	"column_m_t",	"column_m_t",	colbox_type6, "column_m_t",   	{cracky=2,not_in_creative_inventory=visible}},
-{"Column Inside Corner Bot", 	"bcolumn_ic_t",	"column_ic_b",	colbox_type5, "column_ic_b",  	{not_in_creative_inventory=visible}},
-{"Column Outside Corner Bot",	"bcolumn_oc_t",	"column_oc_b",	colbox_type2, "column_oc_b",  	{not_in_creative_inventory=visible}},
-{"Column Middle Bot", 	     	"bcolumn_m_t",	"column_m_b",	colbox_type6, "column_m_b",   	{not_in_creative_inventory=visible}},
+{"Retaining Wall Left", 		"left", 		"blockf_l_t",	colbox_type1, "left",   	{cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Middle", 		"middle",		"blockf_m_t",	colbox_type1, "middle", 	{cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Right", 		"right",		"blockf_r_t",	colbox_type1, "right",  	{cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Corner", 		"corner",		"blockf_c_t",	colbox_type4, "corner", 	{cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Left Bot", 	"bleft", 		"blockf_l_b",	colbox_type3, "left",   	{not_in_creative_inventory=visible}},
+{"Retaining Wall Middle Bot", 	"bmiddle",		"blockf_m_b",	colbox_type3, "middle", 	{not_in_creative_inventory=visible}},
+{"Retaining Wall Right Bot", 	"bright",		"blockf_r_b",	colbox_type3, "right",  	{not_in_creative_inventory=visible}},
+{"Retaining Wall Corner Bot", 	"bcorner",		"blockf_c_b",	colbox_type4, "corner", 	{not_in_creative_inventory=visible}},
+{"Column Inside Corner",     	"column_ic_t",	"columnf_ic_t",	colbox_type5, "column_ic_t",  	{cracky=2,not_in_creative_inventory=visible}},
+{"Column Outside Corner",   	"column_oc_t",	"columnf_oc_t",	colbox_type2, "column_oc_t",  	{cracky=2,not_in_creative_inventory=visible}},
+{"Column Middle", 	    		"column_m_t",	"columnf_m_t",	colbox_type6, "column_m_t",   	{cracky=2,not_in_creative_inventory=visible}},
+{"Column Inside Corner Bot", 	"bcolumn_ic_t",	"columnf_ic_b",	colbox_type5, "column_ic_b",  	{not_in_creative_inventory=visible}},
+{"Column Outside Corner Bot",	"bcolumn_oc_t",	"columnf_oc_b",	colbox_type2, "column_oc_b",  	{not_in_creative_inventory=visible}},
+{"Column Middle Bot", 	     	"bcolumn_m_t",	"columnf_m_b",	colbox_type6, "column_m_b",   	{not_in_creative_inventory=visible}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]
@@ -71,7 +71,7 @@ local col = color_tab[i][1]
 local coldesc = color_tab[i][2]
 local alpha = color_tab[i][3]
 
-minetest.register_node('mylandscaping:rwall_'..typ.."_"..col, {
+minetest.register_node('mylandscaping:fwall_'..typ.."_"..col, {
 	description = desc2.." "..coldesc,
 	drawtype = 'mesh',
 	mesh = 'mylandscaping_'..obj..'.obj',
@@ -79,7 +79,7 @@ minetest.register_node('mylandscaping:rwall_'..typ.."_"..col, {
 	groups = grup,
 	paramtype = 'light',
 	paramtype2 = 'facedir',
-	drop = 'mylandscaping:rwall_'..drops.."_"..col,
+	drop = 'mylandscaping:fwall_'..drops.."_"..col,
 	selection_box = colbox,
 	collision_box = colbox,
 	sounds = default.node_sound_stone_defaults(),
@@ -88,12 +88,12 @@ after_place_node = function(pos, placer, itemstack, pointed_thing)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
 	local node = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z})
-	if nodeu.name == "mylandscaping:rwall_"..typ.."_"..col then
-	   minetest.set_node(pos,{name="mylandscaping:rwall_"..typ.."_"..col,param2=nodeu.param2})
-	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_b"..typ.."_"..col,param2=nodeu.param2})
+	if nodeu.name == "mylandscaping:fwall_"..typ.."_"..col then
+	   minetest.set_node(pos,{name="mylandscaping:fwall_"..typ.."_"..col,param2=nodeu.param2})
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:fwall_b"..typ.."_"..col,param2=nodeu.param2})
 	end
-	if nodea.name == "mylandscaping:rwall_"..typ..col then
-	   minetest.set_node(pos,{name="mylandscaping:rwall_b"..typ.."_"..col,param2=node.param2})
+	if nodea.name == "mylandscaping:fwall_"..typ..col then
+	   minetest.set_node(pos,{name="mylandscaping:fwall_b"..typ.."_"..col,param2=node.param2})
 	end
 end,
 
@@ -102,9 +102,9 @@ after_destruct = function(pos, oldnode)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
 
-	if nodeu.name == "mylandscaping:rwall_b"..typ.."_"..col and
+	if nodeu.name == "mylandscaping:fwall_b"..typ.."_"..col and
 	   nodea.name == "air" then
-	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:rwall_"..typ.."_"..col,param2=nodeu.param2})
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:fwall_"..typ.."_"..col,param2=nodeu.param2})
 	end
 
 end,

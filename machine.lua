@@ -73,7 +73,7 @@ after_place_node = function(pos, placer, itemstack)
 
 on_construct = function(pos)
 	local meta = minetest.env:get_meta(pos)
-	meta:set_string("formspec", retaining_wall)
+	meta:set_string("formspec", retaining_walls)
 	meta:set_string("infotext", "Concrete Mixer")
 	local inv = meta:get_inventory()
 	inv:set_size("input", 1)
@@ -99,68 +99,173 @@ local col = color_tab[i][1]
 local coldesc = color_tab[i][2]
 local dyecol = color_tab[i][3]
 
-if fields["wall1"]
-or fields["wall2"]
-or fields["wall3"]
-or fields["wall4"]
-or fields["column"]
-or fields["column2"]
-or fields["column3"]
-or fields["column4"]
+if fields["awall1"]
+or fields["awall2"]
+or fields["awall3"]
+or fields["awall4"]
+or fields["awall5"]
+or fields["acolumn"]
+or fields["acolumn2"]
+or fields["acolumn3"]
+or fields["acolumn4"]
 then 
 
-	if fields["wall1"] then
+	if fields["awall1"] then
 		make_ok = false
 		anzahl = 2
-		block = "mylandscaping:rwall_left_"
+		block = "mylandscaping:awall_left_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
-	if fields["wall2"] then
+	if fields["awall2"] then
 		make_ok = false
 		anzahl = 2
-		block = "mylandscaping:rwall_middle_"
+		block = "mylandscaping:awall_middle_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
-	if fields["wall3"] then
+	if fields["awall3"] then
 		make_ok = false
 		anzahl = 2
-		block = "mylandscaping:rwall_right_"
+		block = "mylandscaping:awall_right_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
-	if fields["wall4"] then
+	if fields["awall4"] then
 		make_ok = false
 		anzahl = 2
-		block = "mylandscaping:rwall_corner_"
+		block = "mylandscaping:awall_icorner_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
-	if fields["column2"] then
+	if fields["awall5"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:awall_ocorner_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["acolumn2"] then
 		make_ok = false
 		anzahl = 1
-		block = "mylandscaping:rwall_column_m_t_"
+		block = "mylandscaping:awall_column_m_t_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
-	if fields["column3"] then
+	if fields["acolumn3"] then
 		make_ok = false
 		anzahl = 1
-		block = "mylandscaping:rwall_column_ic_t_"
+		block = "mylandscaping:awall_column_ic_t_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
-	if fields["column4"] then
+	if fields["acolumn4"] then
 		make_ok = false
 		anzahl = 1
-		block = "mylandscaping:rwall_column_oc_t_"
+		block = "mylandscaping:awall_column_oc_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+		local instack = inv:get_stack("input", 1)
+		local outstack = inv:get_stack("output", 1)
+		local dyestack = inv:get_stack("dye", 1)
+----------------------------------------------------------------------
+
+	if instack:get_name()== "mylandscaping:concrete_bag" and
+	   dyestack:get_name()== dyecol then
+				material = col
+				make_ok = true	
+	end
+	 if instack:get_name()== "myconcrete:concrete" and
+	   dyestack:get_name()== dyecol then
+				material = col
+				make_ok = true	
+	end
+----------------------------------------------------------------------
+		if make_ok == true then
+			local give = {}
+			for i = 0, anzahl-1 do
+				give[i+1]=inv:add_item("output",block..col)
+			end
+			instack:take_item()
+			inv:set_stack("input",1,instack)
+			if dyestack:get_name() == "dye:"..col then
+			dyestack:take_item()
+			inv:set_stack("dye",1,dyestack)
+			end
+		end
+end
+
+if fields["fwall1"]
+or fields["fwall2"]
+or fields["fwall3"]
+or fields["fwall4"]
+or fields["fcolumn"]
+or fields["fcolumn2"]
+or fields["fcolumn3"]
+or fields["fcolumn4"]
+then 
+
+	if fields["fwall1"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:fwall_left_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fwall2"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:fwall_middle_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fwall3"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:fwall_right_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fwall4"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:fwall_corner_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fcolumn2"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:fwall_column_m_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fcolumn3"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:fwall_column_ic_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fcolumn4"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:fwall_column_oc_t_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -206,7 +311,7 @@ then
 
 	if fields["patio1"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 3
 		stone = "mylandscaping:stone_square"
 		if inv:is_empty("input") then
 			return
@@ -214,7 +319,7 @@ then
 	end
 	if fields["patio2"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 3
 		stone = "mylandscaping:stone_square_sm"
 		if inv:is_empty("input") then
 			return
@@ -222,7 +327,7 @@ then
 	end
 	if fields["patio7"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 3
 		stone = "mylandscaping:stone_square_xsm"
 		if inv:is_empty("input") then
 			return
@@ -230,7 +335,7 @@ then
 	end
 	if fields["patio3"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 3
 		stone = "mylandscaping:stone_pavers"
 		if inv:is_empty("input") then
 			return
@@ -238,7 +343,7 @@ then
 	end
 	if fields["patio4"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 3
 		stone = "mylandscaping:stone_ashlar"
 		if inv:is_empty("input") then
 			return
@@ -246,7 +351,7 @@ then
 	end
 	if fields["patio5"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 3
 		stone = "mylandscaping:stone_flagstone"
 		if inv:is_empty("input") then
 			return
@@ -254,7 +359,7 @@ then
 	end
 	if fields["patio6"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 3
 		stone = "mylandscaping:stone_pinwheel"
 		if inv:is_empty("input") then
 			return
@@ -296,7 +401,7 @@ then
 
 	if fields["deco1"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 4
 		deco = "mylandscaping:deco_wall_r_"
 		if inv:is_empty("input") then
 			return
@@ -304,7 +409,7 @@ then
 	end
 	if fields["deco2"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 4
 		deco = "mylandscaping:deco_wall_f_"
 		if inv:is_empty("input") then
 			return
@@ -312,7 +417,7 @@ then
 	end
 	if fields["deco3"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 4
 		deco = "mylandscaping:deco_wall_p_"
 		if inv:is_empty("input") then
 			return
@@ -320,7 +425,7 @@ then
 	end
 	if fields["deco4"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 4
 		deco = "mylandscaping:deco_wall_ra_"
 		if inv:is_empty("input") then
 			return
@@ -328,7 +433,7 @@ then
 	end
 	if fields["deco5"] then
 		make_ok = false
-		anzahl = 2
+		anzahl = 4
 		deco = "mylandscaping:deco_column_"
 		if inv:is_empty("input") then
 			return

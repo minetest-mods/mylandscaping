@@ -9,7 +9,7 @@ Left block is leftmost in a wall
 Right block is rightmost in a wall
 Middle block is two full blocks, offset on top
 Corner block is inside corner
-Full block is full on bottom, and two halves on top, only takes up one node.
+Full block is full on bottom, and two halves on top, only takes up one node. [not used much]
 
 Columns don't follow same scheme, rather they use this.
 mylandscaping = name of mod
