@@ -2,7 +2,7 @@ local colbox_type1 = { --top blocks
 	type = "fixed",
 	fixed = {{-.49, -.5, 0.05, .5, .6, .52}}
 }
-local colbox_type2 = { --columns
+local colbox_type2 = { --outside corner columns
 	type = "fixed",
 	fixed = {{-.2, -.5, -.2, .5, .5, .5}}
 }
@@ -10,17 +10,22 @@ local colbox_type3 = { --bottom blocks
 	type = "fixed",
 	fixed = {{-.5, -.5, -.16, .5, .5, .25}}
 }
-local colbox_type4 = { --corner
+local colbox_type4 = { --inside corner
 	type = "fixed",
 	fixed = {{-.5, -.5, 0, .5, .5, .5},
 		{0, -.5, -.5, .5, .5, .5}}
 }
-local colbox_type5 = { --corner
+local colbox_type5 = { --inside corner column
 	type = "fixed",
 	fixed = {{-.5, -.5, -.5, .5, .5, .5},}
 }
-local colbox_type6 = { --corner
+local colbox_type6 = { --middle column
 	type = "fixed",
+	fixed = {{-.5, -.5, -.3, .5, .5, .5},}
+}
+
+local colbox_type7 = { --outside corner
+	type = 'fixed',
 	fixed = {{-.5, -.5, -.3, .5, .5, .5},}
 }
 
@@ -28,11 +33,13 @@ local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Retaining Wall Left", 		"left", 		"blocka_l_t",	colbox_type1, "left",   	{cracky=2,not_in_creative_inventory=visible}},
 {"Retaining Wall Middle", 		"middle",		"blocka_m_t",	colbox_type1, "middle", 	{cracky=2,not_in_creative_inventory=visible}},
 {"Retaining Wall Right", 		"right",		"blocka_r_t",	colbox_type1, "right",  	{cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Corner", 		"corner",		"blocka_c_t",	colbox_type4, "corner", 	{cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Inside Corner", 		"icorner",		"blocka_ic_t",	colbox_type4, "icorner", 	{cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Outside Corner", 		"ocorner",		"blocka_oc_t",	colbox_type2, "ocorner", 	{cracky=2,not_in_creative_inventory=visible}},
 {"Retaining Wall Left Bot", 	"bleft", 		"blocka_l_b",	colbox_type3, "left",   	{not_in_creative_inventory=visible}},
 {"Retaining Wall Middle Bot", 	"bmiddle",		"blocka_m_b",	colbox_type3, "middle", 	{not_in_creative_inventory=visible}},
 {"Retaining Wall Right Bot", 	"bright",		"blocka_r_b",	colbox_type3, "right",  	{not_in_creative_inventory=visible}},
-{"Retaining Wall Corner Bot", 	"bcorner",		"blocka_c_b",	colbox_type4, "corner", 	{not_in_creative_inventory=visible}},
+{"Retaining Wall Inside Corner Bot", 	"bicorner",		"blocka_ic_b",	colbox_type4, "icorner", 	{not_in_creative_inventory=visible}},
+{"Retaining Wall Outside Corner Bot", 	"bocorner",		"blocka_oc_b",	colbox_type2, "ocorner", 	{not_in_creative_inventory=visible}},
 {"Column Inside Corner",     	"column_ic_t",	"columna_ic_t",	colbox_type5, "column_ic_t",  	{cracky=2,not_in_creative_inventory=visible}},
 {"Column Outside Corner",   	"column_oc_t",	"columna_oc_t",	colbox_type2, "column_oc_t",  	{cracky=2,not_in_creative_inventory=visible}},
 {"Column Middle", 	    		"column_m_t",	"columna_m_t",	colbox_type6, "column_m_t",   	{cracky=2,not_in_creative_inventory=visible}},

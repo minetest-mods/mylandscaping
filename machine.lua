@@ -103,6 +103,7 @@ if fields["awall1"]
 or fields["awall2"]
 or fields["awall3"]
 or fields["awall4"]
+or fields["awall5"]
 or fields["acolumn"]
 or fields["acolumn2"]
 or fields["acolumn3"]
@@ -136,7 +137,15 @@ then
 	if fields["awall4"] then
 		make_ok = false
 		anzahl = 2
-		block = "mylandscaping:awall_corner_"
+		block = "mylandscaping:awall_icorner_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["awall5"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:awall_ocorner_"
 		if inv:is_empty("input") then
 			return
 		end
