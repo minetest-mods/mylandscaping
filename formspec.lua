@@ -1,9 +1,10 @@
 form =
 	'size[10,10;]'..
 	'background[-0.15,-0.25;10.40,10.75;mylandscaping_background.png]'..
-	'button[0.5,0;3,1;retain;Retaining Walls]'..
-	'button[3.5,0;3,1;patio;Patio Pavers]'..
-	'button[6.5,0;3,1;deco;Deco Walls]'
+	'button[0,0;2.5,1;retain;Retaining Walls]'..
+	'button[2.5,0;2.5,1;column;Columns]'..
+	'button[5,0;2.5,1;patio;Patio Pavers]'..
+	'button[7.5,0;2.5,1;deco;Deco Walls]'
 	
 input =
 	'label[3,4.5;Input]'..
@@ -18,29 +19,36 @@ input =
 
 retaining_walls =
 	form..
-	'label[0,1.75;Freeport]'..
-	'label[0,2.75;Madison]'..
-	'label[0,3.75;Adaridge]'..
+	'label[1,1.75;Freeport]'..
+	'label[1,2.75;Madison]'..
+	'label[1,3.75;Adaridge]'..
 	--Freeport walls
-	'label[1.5,1;Wall Blocks]'..
-	'item_image_button[2,1.5;1,1;mylandscaping:fwall_left_cement;fwall1; ]'..
-	'item_image_button[3,1.5;1,1;mylandscaping:fwall_middle_cement;fwall2; ]'..
-	'item_image_button[4,1.5;1,1;mylandscaping:fwall_right_cement;fwall3; ]'..
-	'item_image_button[5,1.5;1,1;mylandscaping:fwall_corner_cement;fwall4; ]'..
-	--Freeport columns
-	'label[6,1;Columns]'..
-	'item_image_button[6.5,1.5;1,1;mylandscaping:fwall_column_m_t_cement;fcolumn2; ]'..
-	'item_image_button[7.5,1.5;1,1;mylandscaping:fwall_column_ic_t_cement;fcolumn3; ]'..
-	'item_image_button[8.5,1.5;1,1;mylandscaping:fwall_column_oc_t_cement;fcolumn4; ]'..
+	'item_image_button[3,1.5;1,1;mylandscaping:fwall_left_cement;fwall1; ]'..
+	'item_image_button[4,1.5;1,1;mylandscaping:fwall_middle_cement;fwall2; ]'..
+	'item_image_button[5,1.5;1,1;mylandscaping:fwall_right_cement;fwall3; ]'..
+	'item_image_button[6,1.5;1,1;mylandscaping:fwall_corner_cement;fwall4; ]'..
 	--Madison walls
-	--Madison columns
 	--Adaridge walls
-	'item_image_button[2,3.5;1,1;mylandscaping:awall_left_cement;awall1; ]'..
-	'item_image_button[3,3.5;1,1;mylandscaping:awall_middle_cement;awall2; ]'..
-	'item_image_button[4,3.5;1,1;mylandscaping:awall_right_cement;awall3; ]'..
-	'item_image_button[5,3.5;1,1;mylandscaping:awall_icorner_cement;awall4; ]'..
-	'item_image_button[6,3.5;1,1;mylandscaping:awall_ocorner_cement;awall5; ]'..
-	--Adaridge colums
+	'item_image_button[3,3.5;1,1;mylandscaping:awall_left_cement;awall1; ]'..
+	'item_image_button[4,3.5;1,1;mylandscaping:awall_middle_cement;awall2; ]'..
+	'item_image_button[5,3.5;1,1;mylandscaping:awall_right_cement;awall3; ]'..
+	'item_image_button[6,3.5;1,1;mylandscaping:awall_icorner_cement;awall4; ]'..
+	'item_image_button[7,3.5;1,1;mylandscaping:awall_ocorner_cement;awall5; ]'..
+	input
+
+columns = --Although all the columns are in the wall files they get their own menu.
+	form..
+	'label[1,1.75;Freeport]'..
+	'label[1,2.75;Madison]'..
+	'label[1,3.75;Adaridge]'..
+	'item_image_button[3,1.5;1,1;mylandscaping:fwall_column_m_t_cement;fcolumn1; ]'..
+	'item_image_button[4,1.5;1,1;mylandscaping:fwall_column_ic_t_cement;fcolumn2; ]'..
+	'item_image_button[5,1.5;1,1;mylandscaping:fwall_column_oc_t_cement;fcolumn3; ]'..
+	'item_image_button[3,3.5;1,1;mylandscaping:awall_column_m_t_cement;acolumn1; ]'..
+	'item_image_button[4,3.5;1,1;mylandscaping:awall_column_ic_t_cement;acolumn2; ]'..
+	'item_image_button[5,3.5;1,1;mylandscaping:awall_column_oc_t_cement;acolumn3; ]'..
+	'label[6.5,1.5;Columns can be used]'..
+	'label[6.5,2;with all wall styles.]'..
 	input
 
 patio_pavers =

@@ -45,7 +45,7 @@ local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Column Middle", 	    		"column_m_t",	"columna_m_t",	colbox_type6, "column_m_t",   	{cracky=2,not_in_creative_inventory=visible}},
 {"Column Inside Corner Bot", 	"bcolumn_ic_t",	"columna_ic_b",	colbox_type5, "column_ic_b",  	{not_in_creative_inventory=visible}},
 {"Column Outside Corner Bot",	"bcolumn_oc_t",	"columna_oc_b",	colbox_type2, "column_oc_b",  	{not_in_creative_inventory=visible}},
-{"Column Middle Bot", 	     	"bcolumn_m_t",	"columna_m_b",	colbox_type6, "column_m_b",   	{not_in_creative_inventory=visible}},
+{"Column Middle Bot", 	     	"bcolumn_m_t",	"columna_m_b",	colbox_type6, "column_m_b",   	{not_in_creative_inventory=visible}},zz
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]
@@ -120,4 +120,3 @@ end,
 
 end
 end
-
