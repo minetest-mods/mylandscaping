@@ -93,6 +93,9 @@ on_receive_fields = function(pos, formname, fields, sender)
 	if fields['deco'] then
 		meta:set_string('formspec', deco_walls)
 		end
+	if fields['column'] then
+		meta:set_string('formspec', columns)
+		end
 
 for i in ipairs (color_tab) do
 local col = color_tab[i][1]
@@ -104,10 +107,6 @@ or fields["awall2"]
 or fields["awall3"]
 or fields["awall4"]
 or fields["awall5"]
-or fields["acolumn"]
-or fields["acolumn2"]
-or fields["acolumn3"]
-or fields["acolumn4"]
 then 
 
 	if fields["awall1"] then
@@ -150,30 +149,6 @@ then
 			return
 		end
 	end
-	if fields["acolumn2"] then
-		make_ok = false
-		anzahl = 1
-		block = "mylandscaping:awall_column_m_t_"
-		if inv:is_empty("input") then
-			return
-		end
-	end
-	if fields["acolumn3"] then
-		make_ok = false
-		anzahl = 1
-		block = "mylandscaping:awall_column_ic_t_"
-		if inv:is_empty("input") then
-			return
-		end
-	end
-	if fields["acolumn4"] then
-		make_ok = false
-		anzahl = 1
-		block = "mylandscaping:awall_column_oc_t_"
-		if inv:is_empty("input") then
-			return
-		end
-	end
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
@@ -203,15 +178,11 @@ then
 			end
 		end
 end
-
+--------------------------------------------------------------------------------
 if fields["fwall1"]
 or fields["fwall2"]
 or fields["fwall3"]
 or fields["fwall4"]
-or fields["fcolumn"]
-or fields["fcolumn2"]
-or fields["fcolumn3"]
-or fields["fcolumn4"]
 then 
 
 	if fields["fwall1"] then
@@ -246,30 +217,6 @@ then
 			return
 		end
 	end
-	if fields["fcolumn2"] then
-		make_ok = false
-		anzahl = 1
-		block = "mylandscaping:fwall_column_m_t_"
-		if inv:is_empty("input") then
-			return
-		end
-	end
-	if fields["fcolumn3"] then
-		make_ok = false
-		anzahl = 1
-		block = "mylandscaping:fwall_column_ic_t_"
-		if inv:is_empty("input") then
-			return
-		end
-	end
-	if fields["fcolumn4"] then
-		make_ok = false
-		anzahl = 1
-		block = "mylandscaping:fwall_column_oc_t_"
-		if inv:is_empty("input") then
-			return
-		end
-	end
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
@@ -299,7 +246,96 @@ then
 			end
 		end
 end
---------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--all columns here, possible decorative caps too.
+if fields['acolumn1']
+or fields['acolumn2']
+or fields['acolumn3']
+or fields['fcolumn1']
+or fields['fcolumn2']
+or fields['fcolumn3']
+or fields['mcolumn1']
+or fields['mcolumn2']
+or fields['mcolumn3']
+then
+	if fields["acolumn1"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:awall_column_m_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["acolumn2"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:awall_column_ic_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["acolumn3"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:awall_column_oc_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fcolumn1"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:fwall_column_m_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fcolumn2"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:fwall_column_ic_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["fcolumn3"] then
+		make_ok = false
+		anzahl = 1
+		block = "mylandscaping:fwall_column_oc_t_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+
+		local instack = inv:get_stack("input", 1)
+		local outstack = inv:get_stack("output", 1)
+		local dyestack = inv:get_stack("dye", 1)
+----------------------------------------------------------------------
+
+	if instack:get_name()== "mylandscaping:concrete_bag" and
+	   dyestack:get_name()== dyecol then
+				material = col
+				make_ok = true	
+	end
+	 if instack:get_name()== "myconcrete:concrete" and
+	   dyestack:get_name()== dyecol then
+				material = col
+				make_ok = true	
+	end
+		if make_ok == true then
+			local give = {}
+			for i = 0, anzahl-1 do
+				give[i+1]=inv:add_item("output",block..col)
+			end
+			instack:take_item()
+			inv:set_stack("input",1,instack)
+			if dyestack:get_name() == "dye:"..col then
+			dyestack:take_item()
+			inv:set_stack("dye",1,dyestack)
+			end
+		end
+end
+
 if fields["patio1"]
 or fields["patio2"]
 or fields["patio3"]
@@ -391,7 +427,7 @@ then
 			inv:set_stack("input",1,instack)
 		end
 end
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if fields["deco1"]
 or fields["deco2"]
 or fields["deco3"]
@@ -468,5 +504,3 @@ end
 end
 end
 })
-
-
