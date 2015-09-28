@@ -433,6 +433,9 @@ or fields["deco2"]
 or fields["deco3"]
 or fields['deco4']
 or fields['deco5']
+or fields['deco6']
+or fields['deco7']
+or fields['deco8']
 then
 
 	if fields["deco1"] then
@@ -475,7 +478,30 @@ then
 			return
 		end
 	end
-	
+	if fields["deco6"] then
+		make_ok = false
+		anzahl = 4
+		deco = "mylandscaping:column_t_sphere_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["deco7"] then
+		make_ok = false
+		anzahl = 4
+		deco = "mylandscaping:column_t_dragon_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["deco8"] then
+		make_ok = false
+		anzahl = 4
+		deco = "mylandscaping:column_t_suzanne_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)

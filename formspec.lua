@@ -77,4 +77,7 @@ deco_walls =
 	'tooltip[deco4;Random decorative wall]'..
 	'image_button[6,1.5;1,1;mylandscaping_deco_column.png;deco5;]'..
 	'tooltip[deco5;Decorative column]'..
+	'item_image_button[2,2.5;1,1;mylandscaping:column_t_sphere_cement;deco6; ]'..
+	'item_image_button[3,2.5;1,1;mylandscaping:column_t_dragon_cement;deco7; ]'..
+	'item_image_button[4,2.5;1,1;mylandscaping:column_t_suzanne_cement;deco8; ]'..
 	input
