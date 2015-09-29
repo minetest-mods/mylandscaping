@@ -1,11 +1,12 @@
-local block_type1 = { -- desc2, obj
-{"Sphere", 		"sphere"},
-{"Suzanne", 	"suzanne"},
-{'Dragon', 		'dragon'}
+local block_type1 = { -- desc2, obj, texture
+{"Sphere", 		"sphere",	'concrete'},
+{"Suzanne", 	"suzanne",	'concrete'},
+{'Dragon', 		'dragon',	'dragon'}
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]
 	local obj = block_type1[i][2]
+	local tex = block_type1[i][3]
 
 local color_tab = {
 {"black", 	"Black",		"^[colorize:black:150"},
@@ -31,10 +32,10 @@ local coldesc = color_tab[i][2]
 local alpha = color_tab[i][3]
 
 minetest.register_node('mylandscaping:column_t_'..obj.."_"..col, {
-	description = desc2.." "..coldesc,
+	description = desc2..' topper',
 	drawtype = 'mesh',
 	mesh = 'mylandscaping_column_t_'..obj..'.obj',
-	tiles = {name='mylandscaping_concrete.png'..alpha},
+	tiles = {name='mylandscaping_'..tex..'.png'..alpha},
 	groups = {cracky=2, not_in_creative_inventory=visible},
 	paramtype = 'light',
 	paramtype2 = 'facedir',

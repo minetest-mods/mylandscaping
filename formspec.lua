@@ -38,17 +38,20 @@ retaining_walls =
 
 columns = --Although all the columns are in the wall files they get their own menu.
 	form..
-	'label[1,1.75;Freeport]'..
-	'label[1,2.75;Madison]'..
-	'label[1,3.75;Adaridge]'..
-	'item_image_button[3,1.5;1,1;mylandscaping:fwall_column_m_t_cement;fcolumn1; ]'..
-	'item_image_button[4,1.5;1,1;mylandscaping:fwall_column_ic_t_cement;fcolumn2; ]'..
-	'item_image_button[5,1.5;1,1;mylandscaping:fwall_column_oc_t_cement;fcolumn3; ]'..
-	'item_image_button[3,3.5;1,1;mylandscaping:awall_column_m_t_cement;acolumn1; ]'..
-	'item_image_button[4,3.5;1,1;mylandscaping:awall_column_ic_t_cement;acolumn2; ]'..
-	'item_image_button[5,3.5;1,1;mylandscaping:awall_column_oc_t_cement;acolumn3; ]'..
-	'label[6.5,1.5;Columns can be used]'..
-	'label[6.5,2;with all wall styles.]'..
+	'label[.75,1;Columns are compatible with all walls.]'..
+	'label[.75,1.75;Freeport]'..
+	'label[.75,2.75;Madison]'..
+	'label[.75,3.75;Adaridge]'..
+	'item_image_button[2,1.5;1,1;mylandscaping:fwall_column_m_t_cement;fcolumn1; ]'..
+	'item_image_button[3,1.5;1,1;mylandscaping:fwall_column_ic_t_cement;fcolumn2; ]'..
+	'item_image_button[4,1.5;1,1;mylandscaping:fwall_column_oc_t_cement;fcolumn3; ]'..
+	'item_image_button[2,3.5;1,1;mylandscaping:awall_column_m_t_cement;acolumn1; ]'..
+	'item_image_button[3,3.5;1,1;mylandscaping:awall_column_ic_t_cement;acolumn2; ]'..
+	'item_image_button[4,3.5;1,1;mylandscaping:awall_column_oc_t_cement;acolumn3; ]'..
+	'label[6.5,1;Column toppers]'..
+	'item_image_button[6,1.5;1,1;mylandscaping:column_t_sphere_cement;column_sphere; ]'..
+	'item_image_button[7,1.5;1,1;mylandscaping:column_t_dragon_cement;column_dragon; ]'..
+	'item_image_button[8,1.5;1,1;mylandscaping:column_t_suzanne_cement;column_suzanne; ]'..
 	input
 
 patio_pavers =
@@ -77,7 +80,4 @@ deco_walls =
 	'tooltip[deco4;Random decorative wall]'..
 	'image_button[6,1.5;1,1;mylandscaping_deco_column.png;deco5;]'..
 	'tooltip[deco5;Decorative column]'..
-	'item_image_button[2,2.5;1,1;mylandscaping:column_t_sphere_cement;deco6; ]'..
-	'item_image_button[3,2.5;1,1;mylandscaping:column_t_dragon_cement;deco7; ]'..
-	'item_image_button[4,2.5;1,1;mylandscaping:column_t_suzanne_cement;deco8; ]'..
 	input
