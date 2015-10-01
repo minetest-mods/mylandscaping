@@ -311,24 +311,24 @@ then
 	end
 		if fields["column_sphere"] then
 		make_ok = false
-		anzahl = 4
-		deco = "mylandscaping:column_t_sphere_"
+		anzahl = 2
+		block = "mylandscaping:column_t_sphere_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["column_dragon"] then
 		make_ok = false
-		anzahl = 4
-		deco = "mylandscaping:column_t_dragon_"
+		anzahl = 1
+		block = "mylandscaping:column_t_dragon_"
 		if inv:is_empty("input") then
 			return
 		end
 	end
 	if fields["column_suzanne"] then
 		make_ok = false
-		anzahl = 4
-		deco = "mylandscaping:column_t_suzanne_"
+		anzahl = 2
+		block = "mylandscaping:column_t_suzanne_"
 		if inv:is_empty("input") then
 			return
 		end

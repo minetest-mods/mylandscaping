@@ -84,8 +84,10 @@ on_timer = function(pos)
 		local cobble 	= 	inv:get_stack("cobble", 1)
 		local gravel 	= 	inv:get_stack("gravel", 1)
 		local sand 	= 	inv:get_stack("sand", 1)
+		local cobble_inv=	cobble:get_name()
 ----------------------------------------------------------------------
-	if cobble:get_name() == "default:cobble" then
+	if cobble:get_name() == "default:cobble" or
+		minetest.get_node_group(cobble_inv, 'ml') > 0 then
 			inv:add_item("gravel","default:gravel")
 			cobble:take_item()
 			inv:set_stack("cobble",1,cobble)	

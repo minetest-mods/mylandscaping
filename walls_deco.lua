@@ -8,11 +8,11 @@ local colbox_type2 = { --wall
 }
 
 local block_type1 = { -- desc2, obj, colbox, grup,
-{"Deco Wall Round Top",  "wall_r",	colbox_type2, 	{cracky=2,not_in_creative_inventory=visible}},
-{"Deco Wall Flat Top",	 "wall_f",	colbox_type2, 	{cracky=2,not_in_creative_inventory=visible}},
-{'Deco Wall Peaked Top', 'wall_p', 	colbox_type2,	{cracky=2,not_in_creative_inventory=visible}},
-{'Deco Wall Random Top', 'wall_ra',	colbox_type2,	{cracky=2,not_in_creative_inventory=visible}},
-{"Deco Wall Column", 	 "column",	colbox_type1, 	{cracky=2,not_in_creative_inventory=visible}},
+{"Deco Wall Round Top",  "wall_r",	colbox_type2, 	{ml=1,cracky=2,not_in_creative_inventory=visible}},
+{"Deco Wall Flat Top",	 "wall_f",	colbox_type2, 	{ml=1,cracky=2,not_in_creative_inventory=visible}},
+{'Deco Wall Peaked Top', 'wall_p', 	colbox_type2,	{ml=1,cracky=2,not_in_creative_inventory=visible}},
+{'Deco Wall Random Top', 'wall_ra',	colbox_type2,	{ml=1,cracky=2,not_in_creative_inventory=visible}},
+{"Deco Wall Column", 	 "column",	colbox_type1, 	{ml=1,cracky=2,not_in_creative_inventory=visible}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]

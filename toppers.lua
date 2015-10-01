@@ -36,7 +36,7 @@ minetest.register_node('mylandscaping:column_t_'..obj.."_"..col, {
 	drawtype = 'mesh',
 	mesh = 'mylandscaping_column_t_'..obj..'.obj',
 	tiles = {name='mylandscaping_'..tex..'.png'..alpha},
-	groups = {cracky=2, not_in_creative_inventory=visible},
+	groups = {cracky=2, not_in_creative_inventory=visible, ml=1},
 	paramtype = 'light',
 	paramtype2 = 'facedir',
 	sounds = default.node_sound_stone_defaults(),
