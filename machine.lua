@@ -464,7 +464,7 @@ then
 	if fields["deco1"] then
 		make_ok = false
 		anzahl = 4
-		deco = "mylandscaping:deco_wall_r_"
+		deco = "mylandscaping:deco_wall_s_"
 		if inv:is_empty("input") then
 			return
 		end
@@ -488,7 +488,7 @@ then
 	if fields["deco4"] then
 		make_ok = false
 		anzahl = 4
-		deco = "mylandscaping:deco_wall_ra_"
+		deco = "mylandscaping:deco_wall_r_"
 		if inv:is_empty("input") then
 			return
 		end
