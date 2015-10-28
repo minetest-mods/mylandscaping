@@ -1,7 +1,8 @@
 local block_type1 = { -- desc2, obj, texture
 {"Sphere", 		"sphere",	'concrete'},
 {"Suzanne", 	"suzanne",	'concrete'},
-{'Dragon', 		'dragon',	'dragon'}
+{'Dragon', 		'dragon',	'dragon'},
+{'Cross',	'cross',	'concrete'},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]

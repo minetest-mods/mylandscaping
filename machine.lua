@@ -260,6 +260,7 @@ or fields['mcolumn3']
 or fields['column_sphere']
 or fields['column_dragon']
 or fields['column_suzanne']
+or fields['column_cross']
 then
 	if fields["acolumn1"] then
 		make_ok = false
@@ -309,7 +310,7 @@ then
 			return
 		end
 	end
-		if fields["column_sphere"] then
+	if fields["column_sphere"] then
 		make_ok = false
 		anzahl = 2
 		block = "mylandscaping:column_t_sphere_"
@@ -329,6 +330,14 @@ then
 		make_ok = false
 		anzahl = 2
 		block = "mylandscaping:column_t_suzanne_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["column_cross"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:column_t_cross_"
 		if inv:is_empty("input") then
 			return
 		end
