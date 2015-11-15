@@ -52,6 +52,7 @@ columns = --Although all the columns are in the wall files they get their own me
 	'item_image_button[6,1.5;1,1;mylandscaping:column_t_sphere_cement;column_sphere; ]'..
 	'item_image_button[7,1.5;1,1;mylandscaping:column_t_dragon_cement;column_dragon; ]'..
 	'item_image_button[8,1.5;1,1;mylandscaping:column_t_suzanne_cement;column_suzanne; ]'..
+	'item_image_button[9,1.5;1,1;mylandscaping:column_t_cross_cement;column_cross; ]'..
 	input
 
 patio_pavers =
