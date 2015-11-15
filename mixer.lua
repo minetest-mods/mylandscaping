@@ -25,7 +25,7 @@ minetest.register_node('mylandscaping:mixer', {
 	},
 
 can_dig = function(pos,player)
-	local meta = minetest.env:get_meta(pos);
+	local meta = minetest.get_meta(pos);
 	local inv = meta:get_inventory()
 	if player:get_player_name() == meta:get_string("owner") and
 	   inv:is_empty("cobble") and
@@ -39,7 +39,7 @@ can_dig = function(pos,player)
 end,
 
 after_place_node = function(pos, placer, itemstack)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 		local timer = minetest.get_node_timer(pos)
 	meta:set_string("owner",placer:get_player_name())
 	meta:set_string("infotext","Cement Mixer (owned by "..placer:get_player_name()..")")
@@ -47,7 +47,7 @@ after_place_node = function(pos, placer, itemstack)
 	end,
 
 on_construct = function(pos)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	meta:set_string("formspec", "invsize[9,10;]"..
 		"background[-0.15,-0.25;9.40,10.75;mylandscaping_background.png]"..
 		--Gravel

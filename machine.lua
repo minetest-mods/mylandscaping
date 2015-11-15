@@ -51,7 +51,7 @@ minetest.register_node('mylandscaping:machine', {
 	},
 
 can_dig = function(pos,player)
-	local meta = minetest.env:get_meta(pos);
+	local meta = minetest.get_meta(pos);
 	local inv = meta:get_inventory()
 	if player:get_player_name() == meta:get_string("owner") and
 	   inv:is_empty("input") and
@@ -66,13 +66,13 @@ can_dig = function(pos,player)
 end,
 
 after_place_node = function(pos, placer, itemstack)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	meta:set_string("owner",placer:get_player_name())
 	meta:set_string("infotext","Concrete Mixer (owned by "..placer:get_player_name()..")")
 	end,
 
 on_construct = function(pos)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	meta:set_string("formspec", retaining_walls)
 	meta:set_string("infotext", "Concrete Mixer")
 	local inv = meta:get_inventory()
@@ -82,7 +82,7 @@ on_construct = function(pos)
 end,
 
 on_receive_fields = function(pos, formname, fields, sender)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	if fields['retain'] then
 		meta:set_string('formspec', retaining_walls)
