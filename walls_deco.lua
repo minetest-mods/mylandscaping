@@ -46,7 +46,6 @@ local alpha = color_tab[i][3]
 minetest.register_node('mylandscaping:deco_'..obj..'_'..col, {
 	description = desc2.." "..coldesc,
 	drawtype = 'mesh',
-	inventory_image = invimg,
 	mesh = 'mylandscaping_deco_'..obj..'.obj',
 	tiles = {{name='mylandscaping_block_split.png'..alpha}, {name='mylandscaping_block_smooth.png'..alpha}},
 	groups = grup,
