@@ -9,7 +9,7 @@ This is a Minetest mod that adds retaining walls and column nodes.
 - https://forum.minetest.net/viewtopic.php?f=11&t=12094
 
 ## Licensing
-- WTFPL
+- DWYWPL
 
 ## Dependencies
 - default
