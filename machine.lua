@@ -38,7 +38,7 @@ minetest.register_node('mylandscaping:machine', {
 	selection_box = {
 		type = 'fixed',
 		fixed = {
-			{-0.5, -0.5, -0.5, 1.1, 0.5, 0.5}, 
+			{-0.5, -0.5, -0.5, 1.1, 0.5, 0.5},
 			{1.1, -0.5, -0.1, 1.5, -0.3, 0.5}
 		}
 	},
@@ -107,7 +107,7 @@ or fields["awall2"]
 or fields["awall3"]
 or fields["awall4"]
 or fields["awall5"]
-then 
+then
 
 	if fields["awall1"] then
 		make_ok = false
@@ -152,19 +152,19 @@ then
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
-----------------------------------------------------------------------
+---------------------------------------------------------------------
 
 	if instack:get_name()== "mylandscaping:concrete_bag" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = true	
+				make_ok = true
 	end
 	 if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = true	
+				make_ok = true
 	end
-----------------------------------------------------------------------
+---------------------------------------------------------------------
 		if make_ok == true then
 			local give = {}
 			for i = 0, anzahl-1 do
@@ -178,12 +178,12 @@ then
 			end
 		end
 end
---------------------------------------------------------------------------------
+---------------------------------------------------------------------
 if fields["fwall1"]
 or fields["fwall2"]
 or fields["fwall3"]
 or fields["fwall4"]
-then 
+then
 
 	if fields["fwall1"] then
 		make_ok = false
@@ -220,19 +220,19 @@ then
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
-----------------------------------------------------------------------
+---------------------------------------------------------------------
 
 	if instack:get_name()== "mylandscaping:concrete_bag" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = true	
+				make_ok = true
 	end
 	 if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = true	
+				make_ok = true
 	end
-----------------------------------------------------------------------
+---------------------------------------------------------------------
 		if make_ok == true then
 			local give = {}
 			for i = 0, anzahl-1 do
@@ -246,7 +246,66 @@ then
 			end
 		end
 end
---------------------------------------------------------------------------------
+---------------------------------------------------------------------
+if fields["mwall1"]
+or fields["mwall2"]
+or fields["mwall3"]
+then
+
+	if fields["mwall1"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:mwall_middle_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["mwall2"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:mwall_icorner_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+	if fields["mwall3"] then
+		make_ok = false
+		anzahl = 2
+		block = "mylandscaping:mwall_ocorner_"
+		if inv:is_empty("input") then
+			return
+		end
+	end
+		local instack = inv:get_stack("input", 1)
+		local outstack = inv:get_stack("output", 1)
+		local dyestack = inv:get_stack("dye", 1)
+---------------------------------------------------------------------
+
+	if instack:get_name()== "mylandscaping:concrete_bag" and
+	   dyestack:get_name()== dyecol then
+				material = col
+				make_ok = true
+	end
+	 if instack:get_name()== "myconcrete:concrete" and
+	   dyestack:get_name()== dyecol then
+				material = col
+				make_ok = true
+	end
+---------------------------------------------------------------------
+		if make_ok == true then
+			local give = {}
+			for i = 0, anzahl-1 do
+				give[i+1]=inv:add_item("output",block..col)
+			end
+			instack:take_item()
+			inv:set_stack("input",1,instack)
+			if dyestack:get_name() == "dye:"..col then
+			dyestack:take_item()
+			inv:set_stack("dye",1,dyestack)
+			end
+		end
+end
+---------------------------------------------------------------------
 --all columns here, possible decorative caps too.
 if fields['acolumn1']
 or fields['acolumn2']
@@ -345,17 +404,17 @@ then
 		local instack = inv:get_stack("input", 1)
 		local outstack = inv:get_stack("output", 1)
 		local dyestack = inv:get_stack("dye", 1)
-----------------------------------------------------------------------
+---------------------------------------------------------------------
 
 	if instack:get_name()== "mylandscaping:concrete_bag" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = true	
+				make_ok = true
 	end
 	 if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== dyecol then
 				material = col
-				make_ok = true	
+				make_ok = true
 	end
 		if make_ok == true then
 			local give = {}
@@ -378,7 +437,7 @@ or fields["patio4"]
 or fields["patio5"]
 or fields["patio6"]
 or fields["patio7"]
-then 
+then
 
 	if fields["patio1"] then
 		make_ok = false
@@ -443,14 +502,14 @@ then
 	if instack:get_name()== "mylandscaping:concrete_bag" and
 	   dyestack:get_name()== dyecol then
 				make_ok = true
-		
+
 	end
 	if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== dyecol then
 				make_ok = true
-		
+
 	end
-----------------------------------------------------------------------
+---------------------------------------------------------------------
 		if make_ok == true then
 			local give = {}
 			for i = 0, anzahl-1 do
@@ -462,7 +521,7 @@ then
 			inv:set_stack("input",1,instack)
 		end
 end
---------------------------------------------------------------------------------
+---------------------------------------------------------------------
 if fields["deco1"]
 or fields["deco2"]
 or fields["deco3"]
@@ -518,13 +577,13 @@ then
 	if instack:get_name()== "mylandscaping:concrete_bag" and
 	   dyestack:get_name()== dyecol then
 				make_ok = true
-		
+
 	end
 	if instack:get_name()== "myconcrete:concrete" and
 	   dyestack:get_name()== dyecol then
 				make_ok = true
 	end
-----------------------------------------------------------------------
+---------------------------------------------------------------------
 	if make_ok == true then
 			local give = {}
 			for i = 0, anzahl-1 do

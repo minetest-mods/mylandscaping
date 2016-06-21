@@ -2,13 +2,14 @@ I got sick of overwriting the wrong files, here's the breakdown of the file name
 
 mylandscaping = name of mod, duh
 *_block1 = block style
-*_*_L = L, R, M, C, F [Left, Right, Middle, Corner, Full]
+*_*_L = L, R, M, C, F [Left, Right, Middle, OCorner, ICorner, Full]
 *_*_*_T = T, B [Top, Bottom]
 
 Left block is leftmost in a wall
 Right block is rightmost in a wall
 Middle block is two full blocks, offset on top
-Corner block is inside corner
+OCorner block is outside corner
+ICorner block is inside corner
 Full block is full on bottom, and two halves on top, only takes up one node. [not used much]
 
 Columns don't follow same scheme, rather they use this.
