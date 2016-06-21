@@ -1,35 +1,36 @@
 local colbox_type1 = { --top blocks
 	type = "fixed",
-	fixed = {{-.49, -.5, 0.05, .5, .6, .52}}
+	fixed = {-.5, -.5, -.2, .5, .6, .5}
 }
 local colbox_type2 = { --bottom blocks
 	type = "fixed",
-	fixed = {{-.2, -.5, -.2, .5, .5, .5}}
+	fixed = {-.5, -.5, -.2, .5, .5, .5}
 }
 local colbox_type3 = { --top inside corner
 	type = "fixed",
-	fixed = {{-.5, -.5, -.16, .5, .5, .25}}
+	fixed = {{-.2, -.5, -.5, .5, .6, .5},
+		{-.5, -.5, -.2, .5, .6, .5}}
 }
 local colbox_type4 = { --bottom inside corner
 	type = "fixed",
-	fixed = {{-.5, -.5, 0, .5, .5, .5},
-		{0, -.5, -.5, .5, .5, .5}}
+	fixed = {{-.2, -.5, -.5, .5, .5, .5},
+		{-.5, -.5, -.2, .5, .5, .5}}
 }
 local colbox_type5 = { --top outside corner
 	type = "fixed",
-	fixed = {{-.5, -.5, -.5, .5, .5, .5},}
+	fixed = {-.2, -.5, -.2, .5, .6, .5}
 }
 local colbox_type6 = { --bottom outside corner
 	type = "fixed",
-	fixed = {{-.5, -.5, -.3, .5, .5, .5},}
+	fixed = {-.2, -.5, -.2, .5, .5, .5}
 }
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
 {"Retaining Wall Middle", 		"middle", 		"blockm_m_t",	colbox_type1, "middle",   	{ml=1,cracky=2,not_in_creative_inventory=visible}},
 {"Retaining Wall Middle Bot", 	"bmiddle",		"blockm_m_b",	colbox_type2, "middle", 	{not_in_creative_inventory=visible}},
-{"Retaining Wall Inside Corner",	"icorner",	"blockm_ic_t",	colobox_type3,	"icorner", {ml=1,cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Inside Corner",	"icorner",	"blockm_ic_t",	colbox_type3,	"icorner", {ml=1,cracky=2,not_in_creative_inventory=visible}},
 {"Retaining Wall Inside Corner Bot", 	"bicorner",		"blockm_ic_b",	colbox_type4, "icorner", 	{not_in_creative_inventory=visible}},
-{"Retaining Wall Outside Corner",	"ocorner",	"blockm_oc_t",	colobox_type5,	"ocorner", {ml=1,cracky=2,not_in_creative_inventory=visible}},
+{"Retaining Wall Outside Corner",	"ocorner",	"blockm_oc_t",	colbox_type5,	"ocorner", {ml=1,cracky=2,not_in_creative_inventory=visible}},
 {"Retaining Wall Outside Corner Bot", 	"bocorner",		"blockm_oc_b",	colbox_type6, "ocorner", 	{not_in_creative_inventory=visible}},
 }
 
