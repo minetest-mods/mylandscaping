@@ -25,20 +25,20 @@ local colbox_type6 = { --corner
 }
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
-{"Retaining Wall Left", 		"left", 		"blockf_l_t",	colbox_type1, "left",   	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Middle", 		"middle",		"blockf_m_t",	colbox_type1, "middle", 	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Right", 		"right",		"blockf_r_t",	colbox_type1, "right",  	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Corner", 		"corner",		"blockf_c_t",	colbox_type4, "corner", 	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Left Bot", 	"bleft", 		"blockf_l_b",	colbox_type3, "left",   	{not_in_creative_inventory=visible}},
-{"Retaining Wall Middle Bot", 	"bmiddle",		"blockf_m_b",	colbox_type3, "middle", 	{not_in_creative_inventory=visible}},
-{"Retaining Wall Right Bot", 	"bright",		"blockf_r_b",	colbox_type3, "right",  	{not_in_creative_inventory=visible}},
-{"Retaining Wall Corner Bot", 	"bcorner",		"blockf_c_b",	colbox_type4, "corner", 	{not_in_creative_inventory=visible}},
-{"Column Inside Corner",     	"column_ic_t",	"columnf_ic_t",	colbox_type5, "column_ic_t",  	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Column Outside Corner",   	"column_oc_t",	"columnf_oc_t",	colbox_type2, "column_oc_t",  	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Column Middle", 	    		"column_m_t",	"columnf_m_t",	colbox_type6, "column_m_t",   	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Column Inside Corner Bot", 	"bcolumn_ic_t",	"columnf_ic_b",	colbox_type5, "column_ic_b",  	{not_in_creative_inventory=visible}},
-{"Column Outside Corner Bot",	"bcolumn_oc_t",	"columnf_oc_b",	colbox_type2, "column_oc_b",  	{not_in_creative_inventory=visible}},
-{"Column Middle Bot", 	     	"bcolumn_m_t",	"columnf_m_b",	colbox_type6, "column_m_b",   	{not_in_creative_inventory=visible}},
+{"Retaining Wall Left", 		"left", 		"blockf_l_t",	colbox_type1, "left",   	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Middle", 		"middle",		"blockf_m_t",	colbox_type1, "middle", 	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Right", 		"right",		"blockf_r_t",	colbox_type1, "right",  	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Corner", 		"corner",		"blockf_c_t",	colbox_type4, "corner", 	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Left Bot", 	"bleft", 		"blockf_l_b",	colbox_type3, "left",   	{not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Middle Bot", 	"bmiddle",		"blockf_m_b",	colbox_type3, "middle", 	{not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Right Bot", 	"bright",		"blockf_r_b",	colbox_type3, "right",  	{not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Corner Bot", 	"bcorner",		"blockf_c_b",	colbox_type4, "corner", 	{not_in_creative_inventory=mylandscaping_visible}},
+{"Column Inside Corner",     	"column_ic_t",	"columnf_ic_t",	colbox_type5, "column_ic_t",  	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Column Outside Corner",   	"column_oc_t",	"columnf_oc_t",	colbox_type2, "column_oc_t",  	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Column Middle", 	    		"column_m_t",	"columnf_m_t",	colbox_type6, "column_m_t",   	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Column Inside Corner Bot", 	"bcolumn_ic_t",	"columnf_ic_b",	colbox_type5, "column_ic_b",  	{not_in_creative_inventory=mylandscaping_visible}},
+{"Column Outside Corner Bot",	"bcolumn_oc_t",	"columnf_oc_b",	colbox_type2, "column_oc_b",  	{not_in_creative_inventory=mylandscaping_visible}},
+{"Column Middle Bot", 	     	"bcolumn_m_t",	"columnf_m_b",	colbox_type6, "column_m_b",   	{not_in_creative_inventory=mylandscaping_visible}},
 }
 for i in ipairs (block_type1) do
 	local desc2 = block_type1[i][1]

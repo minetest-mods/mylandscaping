@@ -26,12 +26,12 @@ local colbox_type6 = { --bottom outside corner
 }
 
 local block_type1 = { -- desc2, typ, obj, colbox, drops, grup
-{"Retaining Wall Middle", 		"middle", 		"blockm_m_t",	colbox_type1, "middle",   	{ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Middle Bot", 	"bmiddle",		"blockm_m_b",	colbox_type2, "middle", 	{not_in_creative_inventory=visible}},
-{"Retaining Wall Inside Corner",	"icorner",	"blockm_ic_t",	colbox_type3,	"icorner", {ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Inside Corner Bot", 	"bicorner",		"blockm_ic_b",	colbox_type4, "icorner", 	{not_in_creative_inventory=visible}},
-{"Retaining Wall Outside Corner",	"ocorner",	"blockm_oc_t",	colbox_type5,	"ocorner", {ml=1,cracky=2,not_in_creative_inventory=visible}},
-{"Retaining Wall Outside Corner Bot", 	"bocorner",		"blockm_oc_b",	colbox_type6, "ocorner", 	{not_in_creative_inventory=visible}},
+{"Retaining Wall Middle", 		"middle", 		"blockm_m_t",	colbox_type1, "middle",   	{ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Middle Bot", 	"bmiddle",		"blockm_m_b",	colbox_type2, "middle", 	{not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Inside Corner",	"icorner",	"blockm_ic_t",	colbox_type3,	"icorner", {ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Inside Corner Bot", 	"bicorner",		"blockm_ic_b",	colbox_type4, "icorner", 	{not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Outside Corner",	"ocorner",	"blockm_oc_t",	colbox_type5,	"ocorner", {ml=1,cracky=2,not_in_creative_inventory=mylandscaping_visible}},
+{"Retaining Wall Outside Corner Bot", 	"bocorner",		"blockm_oc_b",	colbox_type6, "ocorner", 	{not_in_creative_inventory=mylandscaping_visible}},
 }
 
 for i in ipairs (block_type1) do
