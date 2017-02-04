@@ -1,6 +1,6 @@
 local colbox_type1 = { --top blocks
 	type = "fixed",
-	fixed = {{-.49, -.5, 0.05, .5, .6, .52}}
+	fixed = {{-.49, -.5, 0.05, .5, .5, .52}}
 }
 local colbox_type2 = { --columns
 	type = "fixed",
@@ -84,29 +84,25 @@ minetest.register_node('mylandscaping:fwall_'..typ.."_"..col, {
 	collision_box = colbox,
 	sounds = default.node_sound_stone_defaults(),
 
-after_place_node = function(pos, placer, itemstack, pointed_thing)
+after_place_node = function(pos, placer, itemstack)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
-	local node = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z})
 	if nodeu.name == "mylandscaping:fwall_"..typ.."_"..col then
 	   minetest.set_node(pos,{name="mylandscaping:fwall_"..typ.."_"..col,param2=nodeu.param2})
 	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:fwall_b"..typ.."_"..col,param2=nodeu.param2})
 	end
-	if nodea.name == "mylandscaping:fwall_"..typ..col then
-	   minetest.set_node(pos,{name="mylandscaping:fwall_b"..typ.."_"..col,param2=node.param2})
+	if nodea.name == "mylandscaping:fwall_"..typ..'_'..col then
+	   minetest.set_node(pos,{name="mylandscaping:fwall_b"..typ.."_"..col,param2=nodea.param2})
 	end
 end,
 
 after_destruct = function(pos, oldnode)
-	local node = minetest.get_node(pos).name
+   local node = minetest.get_node(pos)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
-
-	if nodeu.name == "mylandscaping:fwall_b"..typ.."_"..col and
-	   nodea.name == "air" then
-	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:fwall_"..typ.."_"..col,param2=nodeu.param2})
+	if nodeu.name == "mylandscaping:fwall_b"..typ.."_"..col then
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:fwall_"..typ.."_"..col,param2=node.param2})
 	end
-
 end,
 
 })

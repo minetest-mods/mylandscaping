@@ -1,6 +1,6 @@
 local colbox_type1 = { --top blocks
 	type = "fixed",
-	fixed = {-.5, -.5, -.2, .5, .6, .5}
+	fixed = {-.5, -.5, -.2, .5, .5, .5}
 }
 local colbox_type2 = { --bottom blocks
 	type = "fixed",
@@ -8,7 +8,7 @@ local colbox_type2 = { --bottom blocks
 }
 local colbox_type3 = { --top inside corner
 	type = "fixed",
-	fixed = {{-.2, -.5, -.5, .5, .6, .5},
+	fixed = {{-.2, -.5, -.5, .5, .5, .5},
 		{-.5, -.5, -.2, .5, .6, .5}}
 }
 local colbox_type4 = { --bottom inside corner
@@ -18,7 +18,7 @@ local colbox_type4 = { --bottom inside corner
 }
 local colbox_type5 = { --top outside corner
 	type = "fixed",
-	fixed = {-.2, -.5, -.2, .5, .6, .5}
+	fixed = {-.2, -.5, -.2, .5, .5, .5}
 }
 local colbox_type6 = { --bottom outside corner
 	type = "fixed",
@@ -81,26 +81,22 @@ minetest.register_node('mylandscaping:mwall_'..typ.."_"..col, {
 after_place_node = function(pos, placer, itemstack, pointed_thing)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
-	local node = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z})
 	if nodeu.name == "mylandscaping:mwall_"..typ.."_"..col then
 	   minetest.set_node(pos,{name="mylandscaping:mwall_"..typ.."_"..col,param2=nodeu.param2})
 	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:mwall_b"..typ.."_"..col,param2=nodeu.param2})
 	end
 	if nodea.name == "mylandscaping:mwall_"..typ..col then
-	   minetest.set_node(pos,{name="mylandscaping:mwall_b"..typ.."_"..col,param2=node.param2})
+	   minetest.set_node(pos,{name="mylandscaping:mwall_b"..typ.."_"..col,param2=nodea.param2})
 	end
 end,
 
 after_destruct = function(pos, oldnode)
-	local node = minetest.get_node(pos).name
+   local node = minetest.get_node(pos)
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
-
-	if nodeu.name == "mylandscaping:mwall_b"..typ.."_"..col and
-	   nodea.name == "air" then
-	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:mwall_"..typ.."_"..col,param2=nodeu.param2})
+	if nodeu.name == "mylandscaping:mwall_b"..typ.."_"..col then
+	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:mwall_"..typ.."_"..col,param2=node.param2})
 	end
-
 end,
 
 })

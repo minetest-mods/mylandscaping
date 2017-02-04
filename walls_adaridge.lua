@@ -1,6 +1,6 @@
 local colbox_type1 = { --top blocks
 	type = "fixed",
-	fixed = {{-.49, -.5, 0.05, .5, .6, .52}}
+	fixed = {{-.49, -.5, 0.05, .5, .5, .52}}
 }
 local colbox_type2 = { --outside corner columns
 	type = "fixed",
@@ -108,12 +108,9 @@ after_destruct = function(pos, oldnode)
 	local node = minetest.get_node(pos).name
 	local nodeu = minetest.get_node({x=pos.x,y=pos.y-1,z=pos.z})
 	local nodea = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
-
-	if nodeu.name == "mylandscaping:awall_b"..typ.."_"..col and
-	   nodea.name == "air" then
+	if nodeu.name == "mylandscaping:awall_b"..typ.."_"..col then
 	   minetest.set_node({x=pos.x,y=pos.y-1,z=pos.z},{name="mylandscaping:awall_"..typ.."_"..col,param2=nodeu.param2})
 	end
-
 end,
 
 })

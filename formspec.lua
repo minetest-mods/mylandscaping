@@ -43,7 +43,7 @@ columns = --Although all the columns are in the wall files they get their own me
 	form..
 	'label[.75,1;Columns are compatible with all walls.]'..
 	'label[.75,2.75;Freeport]'..
-	'label[.75,3.75;Madison]'..
+--	'label[.75,3.75;Madison]'..
 	'label[.75,1.75;Adaridge]'..
 	'item_image_button[2,2.5;1,1;mylandscaping:fwall_column_m_t_cement;fcolumn1; ]'..
 	'item_image_button[3,2.5;1,1;mylandscaping:fwall_column_ic_t_cement;fcolumn2; ]'..
