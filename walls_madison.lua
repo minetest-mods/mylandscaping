@@ -9,7 +9,7 @@ local colbox_type2 = { --bottom blocks
 local colbox_type3 = { --top inside corner
 	type = "fixed",
 	fixed = {{-.2, -.5, -.5, .5, .5, .5},
-		{-.5, -.5, -.2, .5, .6, .5}}
+		{-.5, -.5, -.2, .5, .5, .5}}
 }
 local colbox_type4 = { --bottom inside corner
 	type = "fixed",
