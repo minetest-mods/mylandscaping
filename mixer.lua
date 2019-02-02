@@ -1,7 +1,6 @@
 
 minetest.register_alias("myconcrete:concrete", 	"mylandscaping:concrete")
 
-
 minetest.register_node('mylandscaping:mixer', {
 	description = 'concrete mixer',
 	drawtype = 'mesh',
@@ -14,7 +13,7 @@ minetest.register_node('mylandscaping:mixer', {
 	selection_box = {
 		type = 'fixed',
 		fixed = {
-			{-0.5, -0.5, -0.5, 1.5, 1.5, 0.5}, 
+			{-0.5, -0.5, -0.5, 1.5, 1.5, 0.5},
 		}
 	},
 	collision_box = {
@@ -48,7 +47,7 @@ after_place_node = function(pos, placer, itemstack)
 
 on_construct = function(pos)
 	local meta = minetest.get_meta(pos)
-	meta:set_string("formspec", "invsize[9,10;]"..
+	meta:set_string("formspec", "size[9,10;]"..
 		"background[-0.15,-0.25;9.40,10.75;mylandscaping_background.png]"..
 		--Gravel
 		"label[0.5,1;Cobble]"..
@@ -75,7 +74,32 @@ on_construct = function(pos)
 	inv:set_size("gravel", 1)
 	inv:set_size("concrete", 1)
 	inv:set_size("sand", 1)
-end,
+   end,
+
+   allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+      local input = stack:get_name()
+      if listname == 'cobble' then
+         if input ~= 'default:cobble' then
+            return 0
+         else
+            return 99
+         end
+      elseif listname == 'gravel' then
+         if input ~= 'default:gravel' then
+            return 0
+         else
+            return 99
+         end
+      elseif listname == 'sand' then
+         if input ~= 'default:sand' then
+            return 0
+         else
+            return 99
+         end
+      elseif listname == 'concrete' then
+         return 0
+      end
+   end,
 
 on_timer = function(pos)
 		local timer 	=	minetest.get_node_timer(pos)
@@ -87,10 +111,10 @@ on_timer = function(pos)
 		local cobble_inv=	cobble:get_name()
 ----------------------------------------------------------------------
 	if cobble:get_name() == "default:cobble" or
-		minetest.get_node_group(cobble_inv, 'ml') > 0 then
+		minetest.get_item_group(cobble_inv, 'ml') > 0 then
 			inv:add_item("gravel","default:gravel")
 			cobble:take_item()
-			inv:set_stack("cobble",1,cobble)	
+			inv:set_stack("cobble",1,cobble)
 	end
 	if gravel:get_name() == "default:gravel" and
 	   sand:get_name() == "default:sand" or
@@ -101,9 +125,7 @@ on_timer = function(pos)
 			sand:take_item()
 			inv:set_stack("sand",1,sand)
 	end
-	timer:start(10)	
+	timer:start(10)
 
 end,
 })
-
-
