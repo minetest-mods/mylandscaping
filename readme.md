@@ -15,7 +15,3 @@ This is a Minetest mod that adds retaining walls and column nodes.
 - default
 - bucket
 - myconcrete?
-
-#
-Please Note:
-If you don't want all the blocks showing in creative inventory modify the walls.lua file and change the first line to say visible = 0, (this is the default setting.)

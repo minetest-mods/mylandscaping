@@ -8,12 +8,12 @@ form =
 
 input =
 	'label[3,4.5;Input]'..
-	'list[current_name;input;3,5;1,1;]'..
+	'list[context;input;3,5;1,1;]'..
 	'label[4,4.5;Dye]'..
-	'list[current_name;dye;4,5;1,1;]'..
+	'list[context;dye;4,5;1,1;]'..
 	--Output
 	'label[6,4.5;Output]'..
-	'list[current_name;output;6,5;1,1;]'..
+	'list[context;output;6,5;1,1;]'..
 	--Players Inven
 	'list[current_player;main;1,6;8,4;]'
 
